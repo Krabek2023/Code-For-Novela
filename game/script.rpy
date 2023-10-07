@@ -2,9 +2,9 @@
 
 # Определение персонажей игры.
 define gg = Character('NoName', color="#b7d436")
-define voice = Character('backVoice', color="#ffffff")
+define voice = Character('Разказчик', color="#b7d436")
 define Kabak = Character('Макс Кабак(Самый сексуальный мужчина)', color='#b14f0e')
-define Kris = Character('Матерь Кристина', color = '#b14f0e')
+define Kris = Character('Матерь Кристина', color = '#b10e44')
 
 # Вместо использования оператора image можете просто
 # складывать все ваши файлы изображений в папку images.
@@ -124,7 +124,7 @@ label start:
         jump scene1  
 
     label scene1:   
-
+        voice "Твоя репутация: [Reputation]"
 
 
 

@@ -73,29 +73,42 @@ label start:
 
         Kabak "Вот и отлично"
 
+        voice "После разагавора со своим наставником, наш герой начал искать новые знакомства"
+
+        voice "Спустя энное количество времени их всех отправляют во внутрь. ГГ нашёл себе новых друзей"
+
+        voice "И самим собой 'Запомнил' имена своих одногрупников. Благо он запомнил своих наставников, а то его бы армяне уграли"
+
     label Studik_for_everyone:
         scene RadAud
         with Fade(1,1,2)
 
-        voice "Часть в аудитории не готова"
+        voice "После провёденного инструктажа, всем пекусам выдали их студики"
 
-        scene audStud
-        with Fade(0.5,0.2,0.7)
+        scene SdutFoto
+        with Fade(0.5,0.5,1)
+
+        gg "Не. Всё-таки красивые у нас студики"
 
     label Profsoyz:
         scene blackScreen
+        with Fade(1,1,2)
 
         voice "Сейчас наш главный герой направляеться в коворкинг"
 
-        voice "Зачем, ему не сказали"
+        voice "Зачем? Ему не сказали"
 
         scene coworking
         with Fade(0.5,0.5,1)
 
+        show Kris1
+
         Kris "Внимание все, Сечас будет информация про проф союз."
 
         voice "Дальше была долгая реклама проф союза"
-        voice "Но мы это опустим, заметив что это действительно полезно для ГГ и что дайт щикарный мерч"
+        voice "Но мы это опустим, заметив что это действительно полезно для ГГ и что даёт щикарный мерч"
+
+        hide Kris1
 
         menu:
             voice"Так что, вступаем?"
@@ -112,9 +125,9 @@ label start:
     label Prof_chos_NO:
         menu:
             #play music "Enter.mp4"
-            "Вступить?":
+            "Всё-таки вступаем?":
                 jump Profsoyz_choise_yes
-            "Ну его?":
+            "Ну его":
                 jump Prof_chos_NO_NO
 
     label Prof_chos_NO_NO:
@@ -123,11 +136,71 @@ label start:
         $Reputation -= 15 
         jump scene1  
 
-    label scene1:   
-        voice "Твоя репутация: [Reputation]"
+    label scene1:
+        
+        show kabak1 at right
 
+        show Kris1 at left
 
+        Kabak "Ну мы всё вам всё в приципе рассказали"
 
+        Kris "А теперь идём на ВАШ первый в уральском федеральном"
+
+        hide Kris1
+        hide kabak1
+
+        voice "Наш герой отправился на ярмарку. Чтож не будем ему мешать"
+
+        scene Guk
+        with Fade(1,1,2)
+
+        scene GukVejer
+        with Fade(1,1,2)
+
+        gg "Ого уже вечер. Ладно поцаны я поду. До встречи"
+
+        scene ObhagaVejer
+        with Fade(1,1,2)
+
+        scene ggRoom
+        with Fade(1,2,3)
+
+        gg "Мда...."
+
+        gg "Чую будет весело"
+
+        gg "Ладно. Учёба учёбой, а дота по расписанию"
+
+        scene ggRoomComp
+        with Fade(0.5,0.5,1)
+
+        scene blackScreen
+        with Fade(0.5,0.5,1)
+
+        "Спустя одну слитую катку"
+
+        scene ggRoomComp
+        with Fade(0.5,0.5,1)
+
+        gg "Ладно я щас злой. Лучше на боковую"
+
+        scene ggRoomBed
+        with Fade(0.5,0.5,1)
+
+    
+    label Day1:
+
+        $ModeusHelp = 0
+
+        scene Day1
+        with Fade(1,1,2)
+
+        pause(2)
+
+        "ModeusHelp = [ModeusHelp]"
+        "Reputation = [Reputation]"
+
+        
 
 
 

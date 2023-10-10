@@ -5,16 +5,19 @@ define gg = Character('NoName', color="#b7d436")
 define voice = Character('Разказчик', color="#b7d436")
 define Kabak = Character('Макс Кабак(Самый сексуальный мужчина)', color='#b14f0e')
 define Kris = Character('Матерь Кристина', color = '#b10e44')
-
-# Вместо использования оператора image можете просто
-# складывать все ваши файлы изображений в папку images.
-# Например, сцену bg room можно вызвать файлом "bg room.png",
-# а eileen happy — "eileen happy.webp", и тогда они появятся в игре.
+define Fahta = Character('Вахтёр', color = '#b80e0e')
+define All = Character('Все', color = '#b7d436')
+define Prepod = Character('Преподаватель', color = "#ac2d06")
 
 # Игра начинается здесь:
 label start:
 
-    $Reputation = 0
+    $Money = 500 #Кол-во денег в рублях
+    $Grade = 0 #Успеваемость в процентах 50 = 100%  0 = 50% -50 = 0% при -10 и ниже блок выборов
+    $GradeMod = 1 #Множитель успеваемости. Единождый бонус
+    $Reputation = 0 #Репутация
+    $KabakReputation = 0 #Репутация с максом
+    $KrisReputation = 0 #Репутация с кристиной
     label Day0:
         label WAKE_UP_SAMURAI:
             scene blackScreen
@@ -238,12 +241,12 @@ label start:
                 scene ModeusChoose
                 with Fade(0.2,0.2,0.4)  
 
-                kabak "Во время выбора тебе будет предоставлена возможность выбрать преподавателя и время, для комфортной учебы."
+                Kabak "Во время выбора тебе будет предоставлена возможность выбрать преподавателя и время, для комфортной учебы."
 
                 scene ggRoomCompVK
                 with Fade(0.2,0.2,0.4)
 
-                kabak "Также, щас я скину тебе плюшку, чтоб ты понимал, какие учителя могут задушить, а какие нет."
+                Kabak "Также, щас я скину тебе плюшку, чтоб ты понимал, какие учителя могут задушить, а какие нет."
 
                 $ModeusHelp = 1
 
@@ -251,7 +254,14 @@ label start:
 
                 gg "Ахринеть, спасибо Максимка"
 
-                kabak "Удачи на голодных играх)))"
+                Kabak "Удачи на голодных играх)))"
+
+                scene ggRoomComp
+                with Fade(0.2,0.2,0.4)
+
+                gg "Думаю надо заранее составить расписание"  
+
+                jump ModeusChoosing
 
             label noSex:
 
@@ -274,26 +284,191 @@ label start:
                 with Fade(0.2,0.2,0.4)
 
                 gg "Ладно ребятки, у меня щас какой-то там модеус. Скоро вернусь"
-        jump start_game    
 
+                $ModeusHelp = 0
 
+                jump ModeusChoosing
+
+        $ModeusChoose = 0
+        label ModeusChoosing:
+
+            scene ModeusChoose
+            with Fade(0.2,0.2,0.4)
+
+            voice "Открыв модеус и точное время Екатиринбурга, наш герой ждёт старта"
+
+            "На часах 23:55"
+
+            gg "Осталась всего 5 минут"
+
+            "Спустя 4 минуты и 57 секунд"
+
+            gg "23:59:57.....58.....59......00:00:00"
+
+            gg "Пора"
+            menu:
+                "Использовать заранее сделаное расписание" if ModeusHelp == 1:
+                    $ModeusChoose = 1
+                "ДУмать на ходу":
+                    $ModeusChoose = 0
+            
+            pause(1.5)
+
+            voice "Наш безимянный впал в ступор. Не будем ему мешать пусть отдохнёт, ведь завтра надинаеться учёба"
+
+    label Day2:
+
+        scene Day2
+        with Fade(1,1,2)
+
+        pause(2)
+
+        label Turn:
+            
+            scene IritEnter
+            with Fade(0.5,0.5,1)
+
+            gg "Чёртовы пробки, не успеваю"
+
+            show fahta1
+
+            Fahta "А ну стоять. Студ билет показал!"
+
+            menu: 
+                gg "Блин, где этот студик"
+                "Показать":
+                    jump TurnGood
+                "Нафиг надо":
+                    jump TurnBad
+            
+            label TurnGood:
+
+                gg "Вот"
+
+                show fahta2
+
+                Fahta "А, первокурсник, ну хорошо, проходи."
+
+                Fahta "В следующий раз доставай студенческий заранее, чтобы других не задерживать"
+
+                gg "Хорошо, учту"
+
+                hide fahta2
+
+                voice "Когда наш Абалдуй нашёл нужную аудиторию, он заметил что препода ещё нет и садиться как ни в чём не бывало"
+
+                $Grade += 10
+
+                jump Dinner
+
+            label TurnBad:
+
+                gg "*Нахер надо, щас в толпе затеряюсь и всё ок будет*"
+
+                voice "Уфффф, турнекетом прямо по ногам. Наверно больно"
+
+                show fahta1
+
+                Fahta "КУДА ПОЛЕЗ, А НУС ИДИ СЮДА"
+
+                Fahta "Всё идём в деканат"
+
+                hide fahta1
+
+                scene dekonat
+                with Fade(0.2,0.2,0.4)
+
+                gg "Может не нада, я первый день. Я на пару опаздываю"
+
+                Fahta "Первый, не первый, мне все-равно, пошли"
+
+                scene blackScreen
+                with Fade(0.2,0.2,0.4)
+
+                voice "После ВЕСЬМА поучительной беседы гг отпускают"
+
+                voice "Из-за данного инцедента по шапке прилетоло не только ему но его наставникам"
+
+                voice "Да ещё и пару пропустил"
+
+                $Reputation -=5
+                $Grade -=10
+
+                jump Dinner
+
+            label Dinner:
+
+                scene IritSiteEnter
+                with Fade(0.5,0.5,1)
+
+                gg "*Щас большак, время есть. Может сходить пообедать?*"
+
+                voice "Наш герой направился в столовую"
+
+                scene KIchen
+                with Fade(0.5,0.5,1)
+
+                menu:
+                    gg "*Чтобы выбрать*"
+                    "Перекус":
+                        jump Butter
+                    "Полноценный обед" if Money >= 200:
+                        jump Obid
+            
+                label Butter:
+
+                    gg "Ладно бутеры с чайком подут"
+
+                    jump Audit
                 
+                label Obid:
+
+                    gg "Раз время есть, стоит плотненько пообедать"
+
+                    $Money -= 200
+
+                    $GradeMod = 1.25
+
+                    jump Audit
+
+        label Audit:
+
+            scene ProgAudit
+            with Fade(1,1,2)
+
+            show prepod1
+
+            Prepod "Здравствуйте, первокурсники, добро пожаловать в лучший институт нашего ВУЗа."
+
+            Prepod "Отсюда начнется ваша дорога во взрослую и осмысленную жизнь..."
+
+            hide prepod1
+
+            voice "Тут нужен материал"
+
+            gg "*Яре яре. Не думал что программирование такое интересное! Теперь это будет мой любимый предмет*"
+
+            $Grade += 10 * GradeMod
+            
+            show prepod1
+            
+            Prepod "На этом закончим, можете быть свободны"
+
+            All "Спасибо, до свидания"
+
+        label AfterStuding1:
+            
+            scene IritEnterevening
+            with Fade(1,1,2)
+
+            gg "*Ну вот и закончился мой первый учебный день в Уральском Федеральном. Надеюсь, здесь я исполню все свои желания*"
+
+            scene busStop
+            with Fade(1,0.7,1.7)
+            scene busOnStop
+            with Fade(0.5,0.5,1)
+            pause(2)
 
 
-
-        
-
-        
-
-
-
-
-
-
-
-        
-
-    
-    
 
     return

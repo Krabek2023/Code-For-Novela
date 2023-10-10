@@ -1,28 +1,22 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
-While loading <renpy.display.im.Image object ('gui/scrollbar/horizontal_[prefix_]thumb.png') at 0x000000000550d550>:
-  File "game/minigames/game/script.rpy", line 6, in merge_hi_scores
-    current.update(old)
-TypeError: 'NoneType' object is not iterable
+While running game code:
+  File "game/script.rpy", line 432, in script
+    Prepod "Здравствуйте, первокурсники, добро пожаловать в лучший институт нашего ВУЗа."
+Exception: Sayer 'Prepod' is not defined.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "E:\новела\renpy-8.1.3-sdk\renpy\bootstrap.py", line 275, in bootstrap
-    renpy.main.main()
-  File "E:\новела\renpy-8.1.3-sdk\renpy\main.py", line 684, in main
-    renpy.persistent.update(True)
-  File "E:\новела\renpy-8.1.3-sdk\renpy\persistent.py", line 396, in update
-    merge(other)
-  File "E:\новела\renpy-8.1.3-sdk\renpy\persistent.py", line 341, in merge
-    val = merge_func(old, new, pval)
-  File "game/minigames/game/script.rpy", line 6, in merge_hi_scores
-    current.update(old)
-  File "E:\новела\renpy-8.1.3-sdk\renpy\revertable.py", line 97, in do_mutation
-    return method(self, *args, **kwargs)
-TypeError: 'NoneType' object is not iterable
+  File "game/script.rpy", line 432, in script
+    Prepod "Здравствуйте, первокурсники, добро пожаловать в лучший институт нашего ВУЗа."
+  File "E:\новела\renpy-8.1.3-sdk\renpy\ast.py", line 890, in execute
+    who = eval_who(self.who, self.who_fast)
+  File "E:\новела\renpy-8.1.3-sdk\renpy\ast.py", line 783, in eval_who
+    raise Exception("Sayer '%s' is not defined." % who)
+Exception: Sayer 'Prepod' is not defined.
 
 Windows-10-10.0.22621 AMD64
 Ren'Py 8.1.3.23091805
 Путь Программиста 1.0
-Tue Oct 10 11:01:16 2023
+Tue Oct 10 13:26:32 2023

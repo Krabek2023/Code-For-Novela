@@ -1,4 +1,4 @@
-Tue Oct 17 17:55:14 2023
+Tue Oct 31 22:04:46 2023
 Windows-10-10.0.22621
 Ren'Py 8.1.3.23091805
  
@@ -7,13 +7,13 @@ Bootstrap to the start of init.init. took 0.03s
 Early init. took 0.00s
 Loader init. took 0.02s
 Loading error handling. took 0.02s
-Loading script. took 0.14s
+Loading script. took 0.21s
 Loading save slot metadata. took 0.03s
 Loading persistent. took 0.00s
 Running init code. took 0.03s
 Loading analysis data. took 0.01s
 Analyze and compile ATL. took 0.00s
-Reloading save slot metadata. took 0.02s
+Reloading save slot metadata. took 0.03s
 Index archives took 0.00s
 Backing up script files to 'C:\\Users\\lugin\\AppData\\Roaming/RenPy/backups\\Test':
 Dump and make backups. took 0.04s
@@ -29,13 +29,13 @@ Init translation took 0.03s
 Build styles took 0.00s
 Load screen analysis took 0.00s
 Analyze screens took 0.01s
-Save screen analysis took 0.02s
+Save screen analysis took 0.01s
 Prepare screens took 0.05s
 Save pyanalysis. took 0.00s
 Save bytecode. took 0.02s
 Running _start took 0.00s
 Performance test:
-Interface start. took 0.07s
+Interface start. took 0.06s
 
 Initializing gl2 renderer:
 primary display bounds: (0, 0, 2560, 1440)
@@ -45,5 +45,70 @@ Vendor: "b'ATI Technologies Inc.'"
 Renderer: b'AMD Radeon RX 6900 XT'
 Version: b'4.6.0 Compatibility Profile Context 23.10.1.230929'
 Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(1908, 1073) drawable=(1908, 1073)
+Screen sizes: virtual=(1920, 1080) physical=(1378, 775) drawable=(1378, 775)
+Maximum texture size: 4096x4096
+
+Full traceback:
+  File "game/script.rpy", line 996, in script
+    if Team2Answer == 2:
+  File "E:\новела\renpy-8.1.3-sdk\renpy\ast.py", line 2133, in execute
+    if renpy.python.py_eval(condition):
+  File "E:\новела\renpy-8.1.3-sdk\renpy\python.py", line 1153, in py_eval
+    return py_eval_bytecode(code, globals, locals)
+  File "E:\новела\renpy-8.1.3-sdk\renpy\python.py", line 1146, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+  File "game/script.rpy", line 996, in <module>
+    if Team2Answer == 2:
+NameError: name 'Team2Answer' is not defined
+
+While running game code:
+  File "game/script.rpy", line 996, in script
+    if Team2Answer == 2:
+  File "game/script.rpy", line 996, in <module>
+    if Team2Answer == 2:
+NameError: name 'Team2Answer' is not defined
+Resetting cache.
+Bootstrap to the start of init.init. took 194.30s
+Early init. took 0.00s
+Loader init. took 0.02s
+Loading error handling. took 0.02s
+Loading script. took 0.18s
+Loading save slot metadata. took 0.02s
+Loading persistent. took 0.00s
+Running init code. took 0.02s
+Loading analysis data. took 0.01s
+Analyze and compile ATL. took 0.00s
+Reloading save slot metadata. took 0.02s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\lugin\\AppData\\Roaming/RenPy/backups\\Test':
+Dump and make backups. took 0.04s
+Cleaning cache. took 0.00s
+Making clean stores. took 0.00s
+Initial gc. took 0.03s
+DPI scale factor: 1.000000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: b"Couldn't load nvlib." (can be ignored)
+Creating interface object. took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.03s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.01s
+Prepare screens took 0.05s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.01s
+Running _start took 0.00s
+Performance test:
+Interface start. took 0.03s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'ATI Technologies Inc.'"
+Renderer: b'AMD Radeon RX 6900 XT'
+Version: b'4.6.0 Compatibility Profile Context 23.10.1.230929'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1378, 775) drawable=(1378, 775)
 Maximum texture size: 4096x4096

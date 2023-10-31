@@ -8,6 +8,11 @@ define Kris = Character('Матерь Кристина', color = '#b10e44')
 define Fahta = Character('Вахтёр', color = '#b80e0e')
 define All = Character('Все', color = '#b7d436')
 define Prepod = Character('Преподаватель', color = "#ac2d06")
+define leader = Character('Ведущий', color = "#ac2d06")
+define Member = Character('Наш чел', color = "#ac2d06")
+define team1 = Character('Стрелки', color = "#ac2d06")
+define team2 = Character('Прилагательные', color = "#ac2d06")
+define team3 = Character('Бикини Ботом', color = "#ac2d06")
 
 # Игра начинается здесь:
 label start:
@@ -479,7 +484,7 @@ label start:
 
     label Day3:
         
-        scene Day2
+        scene Day3
         with Fade(1,1,2)
 
         pause(2)
@@ -653,5 +658,865 @@ label start:
             
             "[Reputation] [Money] [Grade]"
 
+    label Day4:
+        
+        scene Day4
+        with Fade(1,1,2)
 
+        pause(2)
+
+        label SvoiaIgra:
+
+            $OurTeamScore = 0
+            $Team1Score = 0
+            $Team2Score = 0
+            $Team3Score = 0
+
+            
+            $Turn = 1
+
+            $OurTeamPoints = 0
+            $Team1Points = 0
+            $Team2Points = 0
+            $Team3Points = 0
+
+            $Categories = 4
+                
+                
+            $ Cat1Status = True
+            $ Cat1Quest1Status = True
+            $ Cat1Quest2Status = True
+            $ Cat1Quest3Status = True
+            $ Cat1Quest4Status = True             
+            $ Cat1Quest5Status = True
+
+            label Round1:
+
+                if Turn == 1:
+                    menu:
+                        "Категория 1" if Cat1Status == True:
+                            jump Round1Cat1
+                        #"Категория 2" if Cat2Status == 1:
+                            #jump label Round1Cat2
+                        #"Категория 3" if Cat2Status == 1:
+                            #jump label Round1Cat3
+                        #"Категория 4" if Cat2Status == 1:
+                            #jump label Round1Cat4
+                    
+                if Cat1Quest1Status == False and Cat1Quest2Status == False and Cat1Quest3Status == False and Cat1Quest4Status == False and Cat1Quest5Status == False:
+                    $ Cat1Status = False
+
+                label Round1Cat1:
+                    
+                    if Turn == 1: 
+                        gg "Категория 1"
+                        menu: 
+                            "100" if Cat1Quest1Status == True:
+                                jump Cat1Quest1
+
+                            "200" if Cat1Quest2Status==1:
+                                jump Cat1Quest2
+
+                            "300" if Cat1Quest3Status==1:
+                                jump Cat1Quest3
+
+                            "400" if Cat1Quest4Status==1:
+                                jump Cat1Quest4
+
+                            "500" if Cat1Quest5Status==1:
+                                jump Cat1Quest5
+
+                    elif Turn == 2 : 
+                        team1 "Категория 1"
+                        $Team1Qestion = renpy.random.randint(1,6)
+                        if Cat1Quest1Status==1 and Team1Qestion == 1:
+                            team1 "Quest1"
+                            jump Cat1Quest1
+
+                        elif Cat1Quest2Status==1 and Team1Qestion == 2:
+                            team1 "Quest2"
+                            jump Cat1Quest2
+
+                        elif Cat1Quest3Status==1 and Team1Qestion == 3:
+                            team1 "Quest3"
+                            jump Cat1Quest3
+
+                        elif Cat1Quest4Status==1 and Team1Qestion == 4:
+                            team1 "Quest4"
+                            jump Cat1Quest4
+
+                        elif Cat1Quest5Status==1 and Team1Qestion == 5:
+                            team1 "Quest5"
+                            jump Cat1Quest5
+                        else:
+                            "Этого вопроса нет"
+                            jump Round1Cat1    
+
+                    elif Turn == 3: 
+                        team2 "Категория 1"
+                        $Team1Qestion = renpy.random.randint(1,6)
+                        if Cat1Quest1Status==1 and Team1Qestion == 1:
+                            team2 "Quest1"
+                            jump Cat1Quest1
+
+                        elif Cat1Quest2Status==1 and Team1Qestion == 2:
+                            team2 "Quest2"
+                            jump Cat1Quest2
+
+                        elif Cat1Quest3Status==1 and Team1Qestion == 3:
+                            team2 "Quest3"
+                            jump Cat1Quest3
+
+                        elif Cat1Quest4Status==1 and Team1Qestion == 4:
+                            team2 "Quest4"
+                            jump Cat1Quest4
+
+                        elif Cat1Quest5Status==1 and Team1Qestion == 5:
+                            team2 "Quest5"
+                            jump Cat1Quest5
+                        else:
+                            "Этого вопроса нет"
+                            jump Round1Cat1 
+
+                    elif Turn == 4: 
+                        team3 "Категория 1"
+                        $Team1Qestion = renpy.random.randint(1,6)
+                        if Cat1Quest1Status==1 and Team1Qestion == 1:
+                            team3 "Quest1"
+                            jump Cat1Quest1
+
+                        elif Cat1Quest2Status==1 and Team1Qestion == 2:
+                            team3 "Quest2"
+                            jump Cat1Quest2
+
+                        elif Cat1Quest3Status==1 and Team1Qestion == 3:
+                            team3 "Quest3"
+                            jump Cat1Quest3
+
+                        elif Cat1Quest4Status==1 and Team1Qestion == 4:
+                            team3 "Quest4"
+                            jump Cat1Quest4
+
+                        elif Cat1Quest5Status==1 and Team1Qestion == 5:
+                            team3 "Quest5"
+                            jump Cat1Quest5
+                        else:
+                            "Этого вопроса нет"
+                            jump Round1Cat1 
+                    
+                    label Cat1Quest1:
+
+                        leader "Вопрос за 100"
+                        "Вопрос"
+                        if Turn == 1 :
+                            menu: 
+                                "1":
+                                    "верно"
+                                    $OurTeamPoints += 100
+                                    if Turn == 1 :
+                                        $ Turn = 2
+                                    $ Cat1Quest1Status = False
+                                    jump Round1 
+
+                                "2":
+                                    "неверно"
+                                    $OurTeamPoints -= 100
+                                    if Turn == 1 :
+                                        $ Turn = 2
+                                    $ Cat1Quest1Status = False
+                                    jump Round1 
+
+                                "3":
+                                    "неверно"
+                                    $OurTeamPoints -= 100
+                                    if Turn == 1 :
+                                        $ Turn = 2
+                                    $ Cat1Quest1Status = False
+                                    jump Round1 
+
+                                "4":    
+                                    "неверно"
+                                    $OurTeamPoints -= 100
+                                    if Turn == 1 :
+                                        $ Turn = 2
+                                    $ Cat1Quest1Status = False
+                                    jump Round1 
+
+                        elif Turn == 2 : 
+                            $Team1Answer = renpy.random.randint(1,5)
+                            if Team1Answer == 1:
+                                "1"
+                                "верно"
+                                $Team1Points += 100
+                                if Turn == 1 :
+                                    $ Turn = 2
+                                $ Cat1Quest1Status = False
+                                jump Round1 
+                            if Team1Answer == 2:
+                                "2"
+                                "неверно"
+                                $OurTeamPoints -= 100
+                                if Turn == 1 :
+                                    $ Turn = 2
+                                $ Cat1Quest1Status = False
+                                jump Round1 
+                            if Team1Answer == 3:
+                                "3"
+                                "неверно"
+                                $Team1Points -= 100
+                                if Turn == 1 :
+                                    $ Turn = 2
+                                $ Cat1Quest1Status = False
+                                jump Round1 
+                            if Team1Answer == 4:
+                                "4"
+                                "неверно"
+                                $Team1Points -= 100
+                                if Turn == 1 :
+                                    $ Turn = 2
+                                $ Cat1Quest1Status = False
+                                jump Round1 
+
+                        elif Turn == 3 : 
+                            $Team2Answer = renpy.random.randint(1,6)
+                            if Team2Answer == 1:
+                                "1"
+                                "верно"
+                                $Team2Points += 100
+                                if Turn == 3 :
+                                    $ Turn = 4
+                                $ Cat1Quest1Status = False
+                                jump Round1 
+                            if Team2Answer == 2:
+                                "2"
+                                "неверно"
+                                $Team2Points -= 100
+                                if Turn == 3 :
+                                    $ Turn = 4
+                                $ Cat1Quest1Status = False
+                                jump Round1 
+                            if Team2Answer == 3:
+                                "3"
+                                "неверно"
+                                $Team2Points -= 100
+                                if Turn == 3 :
+                                    $ Turn = 4
+                                $ Cat1Quest1Status = False
+                                jump Round1 
+                            if Team2Answer == 4:
+                                "4"
+                                "неверно"
+                                $Team2Points -= 100
+                                if Turn == 3 :
+                                    $ Turn = 4
+                                $ Cat1Quest1Status = False
+                                jump Round1 
+
+                        elif Turn == 4 : 
+                            $Team3Answer = renpy.random.randint(1,6)
+                            if Team3Answer == 1:
+                                "1"
+                                "верно"
+                                $Team3Points += 100
+                                if Turn == 4 :
+                                    $ Turn = 1
+                                $ Cat1Quest1Status = False
+                                jump Round1 
+                            if Team2Answer == 2:
+                                "2"
+                                "неверно"
+                                $Team3Points -= 100
+                                if Turn == 4 :
+                                    $ Turn = 1
+                                $ Cat1Quest1Status = False
+                                jump Round1 
+                            if Team2Answer == 3:
+                                "3"
+                                "неверно"
+                                $Team3Points -= 100
+                                if Turn == 4 :
+                                    $ Turn = 1
+                                $ Cat1Quest1Status = False
+                                jump Round1 
+                            if Team2Answer == 4:
+                                "4"
+                                "неверно"
+                                $Team3Points -= 100
+                                if Turn == 4 :
+                                    $ Turn = 1
+                                $ Cat1Quest1Status = False
+                                jump Round1
+
+                    label Cat1Quest2:
+
+                        leader "Вопрос за 200"
+                        "Вопрос"
+                        if Turn == 1 :
+                            menu: 
+                                "1":
+                                    "верно"
+                                    $OurTeamPoints += 200
+                                    if Turn == 1 :
+                                        $ Turn = 2
+                                    $ Cat1Quest2Status = False
+                                    jump Round1 
+
+                                "2":
+                                    "неверно"
+                                    $OurTeamPoints -= 200
+                                    if Turn == 1 :
+                                        $ Turn = 2
+                                    $ Cat1Quest2Status = False
+                                    jump Round1 
+
+                                "3":
+                                    "неверно"
+                                    $OurTeamPoints -= 200
+                                    if Turn == 1 :
+                                        $ Turn = 2
+                                    $ Cat1Quest2Status = False
+                                    jump Round1 
+
+                                "4":    
+                                    "неверно"
+                                    $OurTeamPoints -= 200
+                                    if Turn == 1 :
+                                        $ Turn = 2
+                                    $ Cat1Quest2Status = False
+                                    jump Round1 
+
+                        elif Turn == 2 : 
+                            $Team1Answer = renpy.random.randint(1,5)
+                            if Team1Answer == 1:
+                                "1"
+                                "верно"
+                                $Team1Points += 200
+                                if Turn == 2 :
+                                    $ Turn = 3
+                                $ Cat1Quest2Status = False
+                                jump Round1 
+                            if Team1Answer == 2:
+                                "2"
+                                "неверно"
+                                $Team1Points -= 200
+                                if Turn == 2 :
+                                    $ Turn = 3
+                                $ Cat1Quest2Status = False
+                                jump Round1 
+                            if Team1Answer == 3:
+                                "3"
+                                "неверно"
+                                $Team1Points -= 200
+                                if Turn == 2 :
+                                    $ Turn = 3
+                                $ Cat1Quest2Status = False
+                                jump Round1 
+                            if Team1Answer == 4:
+                                "4"
+                                "неверно"
+                                $Team1Points -= 200
+                                if Turn == 2 :
+                                    $ Turn = 3
+                                $ Cat1Quest2Status = False
+                                jump Round1
+
+                        elif Turn == 3 : 
+                            $Team2Answer = renpy.random.randint(1,6)
+                            if Team2Answer == 1:
+                                "1"
+                                "верно"
+                                $Team2Points += 200
+                                if Turn == 3 :
+                                    $ Turn = 4
+                                $ Cat1Quest2Status = False
+                                jump Round1 
+                            if Team2Answer == 2:
+                                "2"
+                                "неверно"
+                                $Team2Points -= 200
+                                if Turn == 3 :
+                                    $ Turn = 4
+                                $ Cat1Quest2Status = False
+                                jump Round1 
+                            if Team2Answer == 3:
+                                "3"
+                                "неверно"
+                                $Team2Points -= 200
+                                if Turn == 3 :
+                                    $ Turn = 4
+                                $ Cat1Quest2Status = False
+                                jump Round1 
+                            if Team2Answer == 4:
+                                "4"
+                                "неверно"
+                                $Team2Points -= 200
+                                if Turn == 3 :
+                                    $ Turn = 4
+                                $ Cat1Quest2Status = False
+                                jump Round1
+
+                        elif Turn == 4 : 
+                            $Team3Answer = renpy.random.randint(1,6)
+                            if Team3Answer == 1:
+                                "1"
+                                "верно"
+                                $Team3Points += 200
+                                if Turn == 4 :
+                                    $ Turn = 1
+                                $ Cat1Quest2Status = False
+                                jump Round1 
+                            if Team3Answer == 2:
+                                "2"
+                                "неверно"
+                                $Team3Points -= 200
+                                if Turn == 4 :
+                                    $ Turn = 1
+                                $ Cat1Quest2Status = False
+                                jump Round1 
+                            if Team3Answer == 3:
+                                "3"
+                                "неверно"
+                                $Team3Points -= 200
+                                if Turn == 4 :
+                                    $ Turn = 1
+                                $ Cat1Quest2Status = False
+                                jump Round1 
+                            if Team3Answer == 4:
+                                "4"
+                                "неверно"
+                                $Team3Points -= 200
+                                if Turn == 4 :
+                                    $ Turn = 1
+                                $ Cat1Quest2Status = False
+                                jump Round1
+
+                    label Cat1Quest3:
+
+                        leader "Вопрос за 300"
+                        "Вопрос"
+                        if Turn == 1 :
+                            menu: 
+                                "1":
+                                    "верно"
+                                    $OurTeamPoints += 300
+                                    if Turn == 1 :
+                                        $ Turn = 2
+                                    $ Cat1Quest3Status = False
+                                    jump Round1 
+
+                                "2":
+                                    "неверно"
+                                    $OurTeamPoints -= 300
+                                    if Turn == 1 :
+                                        $ Turn = 2
+                                    $ Cat1Quest3Status = False
+                                    jump Round1 
+
+                                "3":
+                                    "неверно"
+                                    $OurTeamPoints -= 300
+                                    if Turn == 1 :
+                                        $ Turn = 2
+                                    $ Cat1Quest3Status = False
+                                    jump Round1 
+
+                                "4":    
+                                    "неверно"
+                                    $OurTeamPoints -= 300
+                                    if Turn == 1 :
+                                        $ Turn = 2
+                                    $ Cat1Quest3Status = False
+                                    jump Round1 
+
+                        elif Turn == 2 : 
+                            $Team1Answer = renpy.random.randint(1,5)
+                            if Team1Answer == 1:
+                                "1"
+                                "верно"
+                                $Team1Points += 300
+                                if Turn == 2 :
+                                    $ Turn = 3
+                                $ Cat1Quest3Status = False
+                                jump Round1 
+                            if Team1Answer == 2:
+                                "2"
+                                "неверно"
+                                $Team1Points -= 300
+                                if Turn == 2 :
+                                    $ Turn = 3
+                                $ Cat1Quest3Status = False
+                                jump Round1 
+                            if Team1Answer == 3:
+                                "3"
+                                "неверно"
+                                $Team1Points -= 300
+                                if Turn == 2 :
+                                    $ Turn = 3
+                                $ Cat1Quest3Status = False
+                                jump Round1 
+                            if Team1Answer == 4:
+                                "4"
+                                "неверно"
+                                $Team1Points -= 300
+                                if Turn == 2 :
+                                    $ Turn = 3
+                                $ Cat1Quest3Status = False
+                                jump Round1
+
+                        elif Turn == 3 : 
+                            $Team2Answer = renpy.random.randint(1,6)
+                            if Team2Answer == 1:
+                                "1"
+                                "верно"
+                                $Team2Points += 300
+                                if Turn == 3 :
+                                    $ Turn = 4
+                                $ Cat1Quest3Status = False
+                                jump Round1 
+                            if Team2Answer == 2:
+                                "2"
+                                "неверно"
+                                $Team2Points -= 300
+                                if Turn == 3 :
+                                    $ Turn = 4
+                                $ Cat1Quest3Status = False
+                                jump Round1 
+                            if Team2Answer == 3:
+                                "3"
+                                "неверно"
+                                $Team2Points -= 300
+                                if Turn == 3 :
+                                    $ Turn = 4
+                                $ Cat1Quest3Status = False
+                                jump Round1 
+                            if Team2Answer == 4:
+                                "4"
+                                "неверно"
+                                $Team2Points -= 300
+                                if Turn == 3 :
+                                    $ Turn = 4
+                                $ Cat1Quest3Status = False
+                                jump Round1
+
+                        elif Turn == 4 : 
+                            $Team3Answer = renpy.random.randint(1,6)
+                            if Team3Answer == 1:
+                                "1"
+                                "верно"
+                                $Team3Points += 300
+                                if Turn == 4 :
+                                    $ Turn = 1
+                                $ Cat1Quest3Status = False
+                                jump Round1 
+                            if Team3Answer == 2:
+                                "2"
+                                "неверно"
+                                $Team3Points -= 300
+                                if Turn == 4 :
+                                    $ Turn = 1
+                                $ Cat1Quest3Status = False
+                                jump Round1 
+                            if Team3Answer == 3:
+                                "3"
+                                "неверно"
+                                $Team3Points -= 300
+                                if Turn == 4 :
+                                    $ Turn = 1
+                                $ Cat1Quest3Status = False
+                                jump Round1 
+                            if Team3Answer == 4:
+                                "4"
+                                "неверно"
+                                $Team3Points -= 300
+                                if Turn == 4 :
+                                    $ Turn = 1
+                                $ Cat1Quest3Status = False
+                                jump Round1
+                    
+                    label Cat1Quest4:
+
+                        leader "Вопрос за 400"
+                        "Вопрос"
+                        if Turn == 1 :
+                            menu: 
+                                "1":
+                                    "верно"
+                                    $OurTeamPoints += 400
+                                    if Turn == 1 :
+                                        $ Turn = 2
+                                    $ Cat1Quest4Status = False
+                                    jump Round1 
+
+                                "2":
+                                    "неверно"
+                                    $OurTeamPoints -= 400
+                                    if Turn == 1 :
+                                        $ Turn = 2
+                                    $ Cat1Quest4Status = False
+                                    jump Round1 
+
+                                "3":
+                                    "неверно"
+                                    $OurTeamPoints -= 400
+                                    if Turn == 1 :
+                                        $ Turn = 2
+                                    $ Cat1Quest4Status = False
+                                    jump Round1 
+
+                                "4":    
+                                    "неверно"
+                                    $OurTeamPoints -= 400
+                                    if Turn == 1 :
+                                        $ Turn = 2
+                                    $ Cat1Quest4Status = False
+                                    jump Round1 
+
+                        elif Turn == 2 : 
+                            $Team1Answer = renpy.random.randint(1,5)
+                            if Team1Answer == 1:
+                                "1"
+                                "верно"
+                                $Team1Points += 400
+                                if Turn == 2 :
+                                    $ Turn = 3
+                                $ Cat1Quest4Status = False
+                                jump Round1 
+                            if Team1Answer == 2:
+                                "2"
+                                "неверно"
+                                $Team1Points -= 400
+                                if Turn == 2 :
+                                    $ Turn = 3
+                                $ Cat1Quest4Status = False
+                                jump Round1 
+                            if Team1Answer == 3:
+                                "3"
+                                "неверно"
+                                $Team1Points -= 400
+                                if Turn == 2 :
+                                    $ Turn = 3
+                                $ Cat1Quest4Status = False
+                                jump Round1 
+                            if Team1Answer == 4:
+                                "4"
+                                "неверно"
+                                $Team1Points -= 400
+                                if Turn == 2 :
+                                    $ Turn = 3
+                                $ Cat1Quest4Status = False
+                                jump Round1
+
+                        elif Turn == 3 : 
+                            $Team2Answer = renpy.random.randint(1,6)
+                            if Team2Answer == 1:
+                                "1"
+                                "верно"
+                                $Team2Points += 400
+                                if Turn == 3 :
+                                    $ Turn = 4
+                                $ Cat1Quest4Status = False
+                                jump Round1 
+                            if Team2Answer == 2:
+                                "2"
+                                "неверно"
+                                $Team2Points -= 400
+                                if Turn == 3 :
+                                    $ Turn = 4
+                                $ Cat1Quest4Status = False
+                                jump Round1 
+                            if Team2Answer == 3:
+                                "3"
+                                "неверно"
+                                $Team2Points -= 400
+                                if Turn == 3 :
+                                    $ Turn = 4
+                                $ Cat1Quest4Status = False
+                                jump Round1 
+                            if Team2Answer == 4:
+                                "4"
+                                "неверно"
+                                $Team2Points -= 400
+                                if Turn == 3 :
+                                    $ Turn = 4
+                                $ Cat1Quest4Status = False
+                                jump Round1
+
+                        elif Turn == 4 : 
+                            $Team3Answer = renpy.random.randint(1,6)
+                            if Team3Answer == 1:
+                                "1"
+                                "верно"
+                                $Team3Points += 400
+                                if Turn == 4 :
+                                    $ Turn = 1
+                                $ Cat1Quest4Status = False
+                                jump Round1 
+                            if Team3Answer == 2:
+                                "2"
+                                "неверно"
+                                $Team3Points -= 400
+                                if Turn == 4 :
+                                    $ Turn = 1
+                                $ Cat1Quest4Status = False
+                                jump Round1 
+                            if Team3Answer == 3:
+                                "3"
+                                "неверно"
+                                $Team3Points -= 400
+                                if Turn == 4 :
+                                    $ Turn = 1
+                                $ Cat1Quest4Status = False
+                                jump Round1 
+                            if Team3Answer == 4:
+                                "4"
+                                "неверно"
+                                $Team3Points -= 400
+                                if Turn == 4 :
+                                    $ Turn = 1
+                                $ Cat1Quest4Status = False
+                                jump Round1
+
+                    label Cat1Quest5:
+
+                        leader "Вопрос за 500"
+                        "Вопрос"
+                        if Turn == 1 :
+                            menu: 
+                                "1":
+                                    "верно"
+                                    $OurTeamPoints += 500
+                                    if Turn == 1 :
+                                        $ Turn = 2
+                                    $ Cat1Quest5Status = False
+                                    jump Round1 
+
+                                "2":
+                                    "неверно"
+                                    $OurTeamPoints -= 500
+                                    if Turn == 1 :
+                                        $ Turn = 2
+                                    $ Cat1Quest5Status = False
+                                    jump Round1 
+
+                                "3":
+                                    "неверно"
+                                    $OurTeamPoints -= 500
+                                    if Turn == 1 :
+                                        $ Turn = 2
+                                    $ Cat1Quest5Status = False
+                                    jump Round1 
+
+                                "4":    
+                                    "неверно"
+                                    $OurTeamPoints -= 500
+                                    if Turn == 1 :
+                                        $ Turn = 2
+                                    $ Cat1Quest5Status = False
+                                    jump Round1 
+
+                        elif Turn == 2 : 
+                            $Team1Answer = renpy.random.randint(1,5)
+                            if Team1Answer == 1:
+                                "1"
+                                "верно"
+                                $Team1Points += 500
+                                if Turn == 2 :
+                                    $ Turn = 3
+                                $ Cat1Quest5Status = False
+                                jump Round1 
+                            if Team1Answer == 2:
+                                "2"
+                                "неверно"
+                                $Team1Points -= 500
+                                if Turn == 2 :
+                                    $ Turn = 3
+                                $ Cat1Quest5Status = False
+                                jump Round1 
+                            if Team1Answer == 3:
+                                "3"
+                                "неверно"
+                                $Team1Points -= 500
+                                if Turn == 2 :
+                                    $ Turn = 3
+                                $ Cat1Quest5Status = False
+                                jump Round1 
+                            if Team1Answer == 4:
+                                "4"
+                                "неверно"
+                                $Team1Points -= 500
+                                if Turn == 2 :
+                                    $ Turn = 3
+                                $ Cat1Quest5Status = False
+                                jump Round1
+
+                        elif Turn == 3 : 
+                            $Team2Answer = renpy.random.randint(1,6)
+                            if Team2Answer == 1:
+                                "1"
+                                "верно"
+                                $Team2Points += 500
+                                if Turn == 3 :
+                                    $ Turn = 4
+                                $ Cat1Quest5Status = False
+                                jump Round1 
+                            if Team2Answer == 2:
+                                "2"
+                                "неверно"
+                                $Team2Points -= 500
+                                if Turn == 3 :
+                                    $ Turn = 4
+                                $ Cat1Quest5Status = False
+                                jump Round1 
+                            if Team2Answer == 3:
+                                "3"
+                                "неверно"
+                                $Team2Points -= 500
+                                if Turn == 3 :
+                                    $ Turn = 4
+                                $ Cat1Quest5Status = False
+                                jump Round1 
+                            if Team2Answer == 4:
+                                "4"
+                                "неверно"
+                                $Team2Points -= 500
+                                if Turn == 3 :
+                                    $ Turn = 4
+                                $ Cat1Quest5Status = False
+                                jump Round1
+
+                        elif Turn == 4 : 
+                            $Team3Answer = renpy.random.randint(1,6)
+                            if Team3Answer == 1:
+                                "1"
+                                "верно"
+                                $Team3Points += 500
+                                if Turn == 4 :
+                                    $ Turn = 1
+                                $ Cat1Quest5Status = False
+                                jump Round1 
+                            if Team3Answer == 2:
+                                "2"
+                                "неверно"
+                                $Team3Points -= 500
+                                if Turn == 4 :
+                                    $ Turn = 1
+                                $ Cat1Quest5Status = False
+                                jump Round1 
+                            if Team3Answer == 3:
+                                "3"
+                                "неверно"
+                                $Team3Points -= 500
+                                if Turn == 4 :
+                                    $ Turn = 1
+                                $ Cat1Quest5Status = False
+                                jump Round1 
+                            if Team3Answer == 4:
+                                "4"
+                                "неверно"
+                                $Team3Points -= 500
+                                if Turn == 4 :
+                                    $ Turn = 1
+                                $ Cat1Quest5Status = False
+                                jump Round1
     return
+

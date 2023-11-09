@@ -106,7 +106,7 @@ label start:
 
             voice "Зачем? Ему не сказали"
 
-            scene coworking
+            scene coworking2
             with Fade(0.5,0.5,1)
 
             show Kris1
@@ -416,7 +416,7 @@ label start:
 
                 voice "Наш герой направился в столовую"
 
-                scene KIchen
+                scene Kichen
                 with Fade(0.5,0.5,1)
 
                 menu:
@@ -666,8 +666,63 @@ label start:
 
         pause(2)
 
+        label Studing1:
+            
+            voice "Давайте опустим всё лишнее по типу того как наш герой снова проснулся у себя"
+
+            scene Audit1
+            with Fade(0.5,0.5,1)
+
+            show prepod1
+
+            Prepod "Уважаемые студенты, сегодня мы пройдем с вами **ТЕМА**, просьба не отвлекаться, так как тема очень важна для последующих занятий. В конце занятия вы пройдете небольшой тест."
+
+            "Вставьте тест сюда"
+
+            gg "хммммммм. Поговаривают что сегодня вечером будет мероприятие"
+
+            gg "Может сходить?"
+
+            menu:
+                "Идём":
+                    jump SvoiaIgra
+                "Да ну его. Пойду в доту":
+                    jump GoToHome
+
         label SvoiaIgra:
-   
+
+            scene coworking1
+            with Fade(0.5,0.5,1)
+            
+            voice "На удивление день нашего Абалдуя прошёл без проишествий. Так что он пошёл на меропреятие"
+
+            gg "Хм... А сегодня тут очень даже шумно. Наконец-то я дождался мероприятий. Интересно, что меня ожидает сегодня?"
+
+            voice "хмммм, а где же сокомандники. Наш герой стоит, ждёт, а их нет"
+
+            gg "Блин, да где они? Обещали прийти"
+
+            voice "Спустя минуту, которая для него длилась чуть ли не вечность, ожиданий ваша команда наконец-то подошла. Он здоровается со всеми и отправляется на мероприятие"
+
+            scene coworking2
+            with Fade(0.5,0.5,1)
+
+            show sexMan
+
+            leader "Приветсвую всех пришёдших, мы начинам наше мероприятие под названием СУП или Самый Умный Первокурсник"
+
+            leader "И вот правила нашей игры"
+            
+            leader "Игрок, тебе будут даны 4 категории в по 5 вопросов разного номинала"
+
+            leader "чтобы выбрать категорию нажни на её название, также с вопросом"
+
+            leader "Дальше его озвучат и тебе будет дано 4 варианта ответа, один из правильный"
+
+            leader "Помимо тебя есть ещё 3 команды(бота), которые выбираю вопросчы и ответы на ниш случайно"
+
+            leader "Победит та команда у которой будет больше всего очков"
+
             $ Turn = 1
 
             $ OurTeamPoints = 0
@@ -790,20 +845,20 @@ label start:
 
                 if Turn == 1:
                     menu:
-                        "Категория 1" if R1Cat1Status == True:
+                        "Георафия" if R1Cat1Status == True:
                             jump Round1Cat1
-                        "Категория 2" if R1Cat2Status == True:
+                        "История" if R1Cat2Status == True:
                             jump Round1Cat2
-                        "Категория 3" if R1Cat2Status == True:
+                        "Биология" if R1Cat2Status == True:
                             jump Round1Cat3
-                        "Категория 4" if R1Cat2Status == True:
+                        "Мультфильмы" if R1Cat2Status == True:
                             jump Round1Cat4
                     
  
                 label Round1Cat1:
                     
                     if Turn == 1: 
-                        gg "Категория 1"
+                        gg "Георафия"
                         menu: 
                             "100" if R1Cat1Quest1Status == True:
                                 jump R1Cat1Quest1
@@ -821,26 +876,26 @@ label start:
                                 jump R1Cat1Quest5
 
                     elif Turn == 2 : 
-                        team1 "Категория 1"
+                        team1 "Георафия"
                         $Team1Qestion = renpy.random.randint(1,6)
                         if R1Cat1Quest1Status==1 and Team1Qestion == 1:
-                            team1 "Quest1"
+                            team1 "Вопрос за 100"
                             jump R1Cat1Quest1
 
                         elif R1Cat1Quest2Status==1 and Team1Qestion == 2:
-                            team1 "Quest2"
+                            team1 "Вопрос за 200"
                             jump R1Cat1Quest2
 
                         elif R1Cat1Quest3Status==1 and Team1Qestion == 3:
-                            team1 "Quest3"
+                            team1 "Вопрос за 300"
                             jump R1Cat1Quest3
 
                         elif R1Cat1Quest4Status==1 and Team1Qestion == 4:
-                            team1 "Quest4"
+                            team1 "Вопрос за 400"
                             jump R1Cat1Quest4
 
                         elif R1Cat1Quest5Status==1 and Team1Qestion == 5:
-                            team1 "Quest5"
+                            team1 "Вопрос за 500"
                             jump R1Cat1Quest5
                         else:
                             "Этого вопроса нет"
@@ -850,49 +905,49 @@ label start:
                         team2 "Категория 1"
                         $Team1Qestion = renpy.random.randint(1,6)
                         if R1Cat1Quest1Status==1 and Team1Qestion == 1:
-                            team2 "Quest1"
+                            team2 "Вопрос за 100"
                             jump R1Cat1Quest1
 
                         elif R1Cat1Quest2Status==1 and Team1Qestion == 2:
-                            team2 "Quest2"
+                            team2 "Вопрос за 200"
                             jump R1Cat1Quest2
 
                         elif R1Cat1Quest3Status==1 and Team1Qestion == 3:
-                            team2 "Quest3"
+                            team2 "Вопрос за 300"
                             jump R1Cat1Quest3
 
                         elif R1Cat1Quest4Status==1 and Team1Qestion == 4:
-                            team2 "Quest4"
+                            team2 "Вопрос за 400"
                             jump R1Cat1Quest4
 
                         elif R1Cat1Quest5Status==1 and Team1Qestion == 5:
-                            team2 "Quest5"
+                            team2 "Вопрос за 500"
                             jump R1Cat1Quest5
                         else:
                             "Этого вопроса нет"
                             jump Round1Cat1 
 
                     elif Turn == 4: 
-                        team3 "Категория 1"
+                        team3 "Гегорафия"
                         $Team1Qestion = renpy.random.randint(1,6)
                         if R1Cat1Quest1Status==1 and Team1Qestion == 1:
-                            team3 "Quest1"
+                            team3 "Вопрос за 100"
                             jump R1Cat1Quest1
 
                         elif R1Cat1Quest2Status==1 and Team1Qestion == 2:
-                            team3 "Quest2"
+                            team3 "Вопрос за 200"
                             jump R1Cat1Quest2
 
                         elif R1Cat1Quest3Status==1 and Team1Qestion == 3:
-                            team3 "Quest3"
+                            team3 "Вопрос за 300"
                             jump R1Cat1Quest3
 
                         elif R1Cat1Quest4Status==1 and Team1Qestion == 4:
-                            team3 "Quest4"
+                            team3 "Вопрос за 400"
                             jump R1Cat1Quest4
 
                         elif R1Cat1Quest5Status==1 and Team1Qestion == 5:
-                            team3 "Quest5"
+                            team3 "Вопрос за 500"
                             jump R1Cat1Quest5
                         else:
                             "Этого вопроса нет"
@@ -1697,23 +1752,23 @@ label start:
                         team1 "Категория 2"
                         $Team1Qestion = renpy.random.randint(1,6)
                         if R1Cat2Quest1Status==1 and Team1Qestion == 1:
-                            team1 "Quest1"
+                            team1 "Вопрос за 100"
                             jump R1Cat2Quest1
 
                         elif R1Cat2Quest2Status==1 and Team1Qestion == 2:
-                            team1 "Quest2"
+                            team1 "Вопрос за 200"
                             jump R1Cat2Quest2
 
                         elif R1Cat2Quest3Status==1 and Team1Qestion == 3:
-                            team1 "Quest3"
+                            team1 "Вопрос за 300"
                             jump R1Cat2Quest3
 
                         elif R1Cat2Quest4Status==1 and Team1Qestion == 4:
-                            team1 "Quest4"
+                            team1 "Вопрос за 400"
                             jump R1Cat2Quest4
 
                         elif R1Cat2Quest5Status==1 and Team1Qestion == 5:
-                            team1 "Quest5"
+                            team1 "Вопрос за 500"
                             jump R1Cat2Quest5
                         else:
                             "Этого вопроса нет"
@@ -1723,23 +1778,23 @@ label start:
                         team2 "Категория 2"
                         $Team2Qestion = renpy.random.randint(1,6)
                         if R1Cat2Quest1Status==1 and Team1Qestion == 1:
-                            team2 "Quest1"
+                            team2 "Вопрос за 100"
                             jump R1Cat2Quest1
 
                         elif R1Cat2Quest2Status==1 and Team1Qestion == 2:
-                            team2 "Quest2"
+                            team2 "Вопрос за 200"
                             jump R1Cat2Quest2
 
                         elif R1Cat2Quest3Status==1 and Team1Qestion == 3:
-                            team2 "Quest3"
+                            team2 "Вопрос за 300"
                             jump R1Cat2Quest3
 
                         elif R1Cat2Quest4Status==1 and Team1Qestion == 4:
-                            team2 "Quest4"
+                            team2 "Вопрос за 400"
                             jump R1Cat2Quest4
 
                         elif R1Cat2Quest5Status==1 and Team1Qestion == 5:
-                            team2 "Quest5"
+                            team2 "Вопрос за 500"
                             jump R1Cat2Quest5
                         else:
                             "Этого вопроса нет"
@@ -1749,23 +1804,23 @@ label start:
                         team3 "Категория 2"
                         $Team1Qestion = renpy.random.randint(1,6)
                         if R1Cat2Quest1Status==1 and Team1Qestion == 1:
-                            team3 "Quest1"
+                            team3 "Вопрос за 100"
                             jump R1Cat2Quest1
 
                         elif R1Cat2Quest2Status==1 and Team1Qestion == 2:
-                            team3 "Quest2"
+                            team3 "Вопрос за 200"
                             jump R1Cat2Quest2
 
                         elif R1Cat2Quest3Status==1 and Team1Qestion == 3:
-                            team3 "Quest3"
+                            team3 "Вопрос за 300"
                             jump R1Cat2Quest3
 
                         elif R1Cat2Quest4Status==1 and Team1Qestion == 4:
-                            team3 "Quest4"
+                            team3 "Вопрос за 400"
                             jump R1Cat2Quest4
 
                         elif R1Cat2Quest5Status==1 and Team1Qestion == 5:
-                            team3 "Quest5"
+                            team3 "Вопрос за 500"
                             jump R1Cat2Quest5
                         else:
                             "Этого вопроса нет"
@@ -2570,23 +2625,23 @@ label start:
                         team1 "Категория 3"
                         $Team1Qestion = renpy.random.randint(1,6)
                         if R1Cat3Quest1Status==1 and Team1Qestion == 1:
-                            team1 "Quest1"
+                            team1 "Вопрос за 100"
                             jump R1Cat3Quest1
 
                         elif R1Cat3Quest2Status==1 and Team1Qestion == 2:
-                            team1 "Quest2"
+                            team1 "Вопрос за 200"
                             jump R1Cat3Quest2
 
                         elif R1Cat3Quest3Status==1 and Team1Qestion == 3:
-                            team1 "Quest3"
+                            team1 "Вопрос за 300"
                             jump R1Cat3Quest3
 
                         elif R1Cat3Quest4Status==1 and Team1Qestion == 4:
-                            team1 "Quest4"
+                            team1 "Вопрос за 400"
                             jump R1Cat3Quest4
 
                         elif R1Cat3Quest5Status==1 and Team1Qestion == 5:
-                            team1 "Quest5"
+                            team1 "Вопрос за 500"
                             jump R1Cat3Quest5
                         else:
                             "Этого вопроса нет"
@@ -2596,23 +2651,23 @@ label start:
                         team2 "Категория 3"
                         $Team2Qestion = renpy.random.randint(1,6)
                         if R1Cat3Quest1Status==1 and Team1Qestion == 1:
-                            team2 "Quest1"
+                            team2 "Вопрос за 100"
                             jump R1Cat3Quest1
 
                         elif R1Cat3Quest2Status==1 and Team1Qestion == 2:
-                            team2 "Quest2"
+                            team2 "Вопрос за 200"
                             jump R1Cat3Quest2
 
                         elif R1Cat3Quest3Status==1 and Team1Qestion == 3:
-                            team2 "Quest3"
+                            team2 "Вопрос за 300"
                             jump R1Cat3Quest3
 
                         elif R1Cat3Quest4Status==1 and Team1Qestion == 4:
-                            team2 "Quest4"
+                            team2 "Вопрос за 400"
                             jump R1Cat3Quest4
 
                         elif R1Cat3Quest5Status==1 and Team1Qestion == 5:
-                            team2 "Quest5"
+                            team2 "Вопрос за 500"
                             jump R1Cat3Quest5
                         else:
                             "Этого вопроса нет"
@@ -2622,23 +2677,23 @@ label start:
                         team3 "Категория 3"
                         $Team3Qestion = renpy.random.randint(1,6)
                         if R1Cat3Quest1Status==1 and Team1Qestion == 1:
-                            team3 "Quest1"
+                            team3 "Вопрос за 100"
                             jump R1Cat3Quest1
 
                         elif R1Cat3Quest2Status==1 and Team1Qestion == 2:
-                            team3 "Quest2"
+                            team3 "Вопрос за 200"
                             jump R1Cat3Quest2
 
                         elif R1Cat3Quest3Status==1 and Team1Qestion == 3:
-                            team3 "Quest3"
+                            team3 "Вопрос за 300"
                             jump R1Cat3Quest3
 
                         elif R1Cat3Quest4Status==1 and Team1Qestion == 4:
-                            team3 "Quest4"
+                            team3 "Вопрос за 400"
                             jump R1Cat3Quest4
 
                         elif R1Cat3Quest5Status==1 and Team1Qestion == 5:
-                            team3 "Quest5"
+                            team3 "Вопрос за 500"
                             jump R1Cat3Quest5
                         else:
                             "Этого вопроса нет"
@@ -3443,23 +3498,23 @@ label start:
                         team1 "Категория 4"
                         $Team1Qestion = renpy.random.randint(1,6)
                         if R1Cat4Quest1Status==1 and Team1Qestion == 1:
-                            team1 "Quest1"
+                            team1 "Вопрос за 100"
                             jump R1Cat4Quest1
 
                         elif R1Cat4Quest2Status==1 and Team1Qestion == 2:
-                            team1 "Quest2"
+                            team1 "Вопрос за 200"
                             jump R1Cat4Quest2
 
                         elif R1Cat4Quest3Status==1 and Team1Qestion == 3:
-                            team1 "Quest3"
+                            team1 "Вопрос за 300"
                             jump R1Cat4Quest3
 
                         elif R1Cat4Quest4Status==1 and Team1Qestion == 4:
-                            team1 "Quest4"
+                            team1 "Вопрос за 400"
                             jump R1Cat4Quest4
 
                         elif R1Cat4Quest5Status==1 and Team1Qestion == 5:
-                            team1 "Quest5"
+                            team1 "Вопрос за 500"
                             jump R1Cat4Quest5
                         else:
                             "Этого вопроса нет"
@@ -3469,23 +3524,23 @@ label start:
                         team2 "Категория 3"
                         $Team2Qestion = renpy.random.randint(1,6)
                         if R1Cat4Quest1Status==1 and Team1Qestion == 1:
-                            team2 "Quest1"
+                            team2 "Вопрос за 100"
                             jump R1Cat4Quest1
 
                         elif R1Cat4Quest2Status==1 and Team1Qestion == 2:
-                            team2 "Quest2"
+                            team2 "Вопрос за 200"
                             jump R1Cat4Quest2
 
                         elif R1Cat4Quest3Status==1 and Team1Qestion == 3:
-                            team2 "Quest3"
+                            team2 "Вопрос за 300"
                             jump R1Cat4Quest3
 
                         elif R1Cat4Quest4Status==1 and Team1Qestion == 4:
-                            team2 "Quest4"
+                            team2 "Вопрос за 400"
                             jump R1Cat4Quest4
 
                         elif R1Cat4Quest5Status==1 and Team1Qestion == 5:
-                            team2 "Quest5"
+                            team2 "Вопрос за 500"
                             jump R1Cat4Quest5
                         else:
                             "Этого вопроса нет"
@@ -3495,23 +3550,23 @@ label start:
                         team3 "Категория 3"
                         $Team3Qestion = renpy.random.randint(1,6)
                         if R1Cat4Quest1Status==1 and Team1Qestion == 1:
-                            team3 "Quest1"
+                            team3 "Вопрос за 100"
                             jump R1Cat4Quest1
 
                         elif R1Cat4Quest2Status==1 and Team1Qestion == 2:
-                            team3 "Quest2"
+                            team3 "Вопрос за 200"
                             jump R1Cat4Quest2
 
                         elif R1Cat4Quest3Status==1 and Team1Qestion == 3:
-                            team3 "Quest3"
+                            team3 "Вопрос за 300"
                             jump R1Cat4Quest3
 
                         elif R1Cat4Quest4Status==1 and Team1Qestion == 4:
-                            team3 "Quest4"
+                            team3 "Вопрос за 400"
                             jump R1Cat4Quest4
 
                         elif R1Cat4Quest5Status==1 and Team1Qestion == 5:
-                            team3 "Quest5"
+                            team3 "Вопрос за 500"
                             jump R1Cat4Quest5
                         else:
                             "Этого вопроса нет"
@@ -4349,23 +4404,23 @@ label start:
                         team1 "Категория 1"
                         $Team1Qestion = renpy.random.randint(1,6)
                         if R2Cat1Quest1Status==1 and Team1Qestion == 1:
-                            team1 "Quest1"
+                            team1 "Вопрос за 100"
                             jump R2Cat1Quest1
 
                         elif R2Cat1Quest2Status==1 and Team1Qestion == 2:
-                            team1 "Quest2"
+                            team1 "Вопрос за 200"
                             jump R2Cat1Quest2
 
                         elif R2Cat1Quest3Status==1 and Team1Qestion == 3:
-                            team1 "Quest3"
+                            team1 "Вопрос за 300"
                             jump R2Cat1Quest3
 
                         elif R2Cat1Quest4Status==1 and Team1Qestion == 4:
-                            team1 "Quest4"
+                            team1 "Вопрос за 400"
                             jump R2Cat1Quest4
 
                         elif R2Cat1Quest5Status==1 and Team1Qestion == 5:
-                            team1 "Quest5"
+                            team1 "Вопрос за 500"
                             jump R2Cat1Quest5
                         else:
                             "Этого вопроса нет"
@@ -4375,23 +4430,23 @@ label start:
                         team2 "Категория 1"
                         $Team1Qestion = renpy.random.randint(1,6)
                         if R2Cat1Quest1Status==1 and Team1Qestion == 1:
-                            team2 "Quest1"
+                            team2 "Вопрос за 100"
                             jump R2Cat1Quest1
 
                         elif R2Cat1Quest2Status==1 and Team1Qestion == 2:
-                            team2 "Quest2"
+                            team2 "Вопрос за 200"
                             jump R2Cat1Quest2
 
                         elif R2Cat1Quest3Status==1 and Team1Qestion == 3:
-                            team2 "Quest3"
+                            team2 "Вопрос за 300"
                             jump R2Cat1Quest3
 
                         elif R2Cat1Quest4Status==1 and Team1Qestion == 4:
-                            team2 "Quest4"
+                            team2 "Вопрос за 400"
                             jump R2Cat1Quest4
 
                         elif R2Cat1Quest5Status==1 and Team1Qestion == 5:
-                            team2 "Quest5"
+                            team2 "Вопрос за 500"
                             jump R2Cat1Quest5
                         else:
                             "Этого вопроса нет"
@@ -4401,23 +4456,23 @@ label start:
                         team3 "Категория 1"
                         $Team1Qestion = renpy.random.randint(1,6)
                         if R2Cat1Quest1Status==1 and Team1Qestion == 1:
-                            team3 "Quest1"
+                            team3 "Вопрос за 100"
                             jump R2Cat1Quest1
 
                         elif R2Cat1Quest2Status==1 and Team1Qestion == 2:
-                            team3 "Quest2"
+                            team3 "Вопрос за 200"
                             jump R2Cat1Quest2
 
                         elif R2Cat1Quest3Status==1 and Team1Qestion == 3:
-                            team3 "Quest3"
+                            team3 "Вопрос за 300"
                             jump R2Cat1Quest3
 
                         elif R2Cat1Quest4Status==1 and Team1Qestion == 4:
-                            team3 "Quest4"
+                            team3 "Вопрос за 400"
                             jump R2Cat1Quest4
 
                         elif R2Cat1Quest5Status==1 and Team1Qestion == 5:
-                            team3 "Quest5"
+                            team3 "Вопрос за 500"
                             jump R2Cat1Quest5
                         else:
                             "Этого вопроса нет"
@@ -5222,23 +5277,23 @@ label start:
                         team1 "Категория 2"
                         $Team1Qestion = renpy.random.randint(1,6)
                         if R2Cat2Quest1Status==1 and Team1Qestion == 1:
-                            team1 "Quest1"
+                            team1 "Вопрос за 100"
                             jump R2Cat2Quest1
 
                         elif R2Cat2Quest2Status==1 and Team1Qestion == 2:
-                            team1 "Quest2"
+                            team1 "Вопрос за 200"
                             jump R2Cat2Quest2
 
                         elif R2Cat2Quest3Status==1 and Team1Qestion == 3:
-                            team1 "Quest3"
+                            team1 "Вопрос за 300"
                             jump R2Cat2Quest3
 
                         elif R2Cat2Quest4Status==1 and Team1Qestion == 4:
-                            team1 "Quest4"
+                            team1 "Вопрос за 400"
                             jump R2Cat2Quest4
 
                         elif R2Cat2Quest5Status==1 and Team1Qestion == 5:
-                            team1 "Quest5"
+                            team1 "Вопрос за 500"
                             jump R2Cat2Quest5
                         else:
                             "Этого вопроса нет"
@@ -5248,23 +5303,23 @@ label start:
                         team2 "Категория 2"
                         $Team2Qestion = renpy.random.randint(1,6)
                         if R2Cat2Quest1Status==1 and Team2Qestion == 1:
-                            team2 "Quest1"
+                            team2 "Вопрос за 100"
                             jump R2Cat2Quest1
 
                         elif R2Cat2Quest2Status==1 and Team2Qestion == 2:
-                            team2 "Quest2"
+                            team2 "Вопрос за 200"
                             jump R2Cat2Quest2
 
                         elif R2Cat2Quest3Status==1 and Team2Qestion == 3:
-                            team2 "Quest3"
+                            team2 "Вопрос за 300"
                             jump R2Cat2Quest3
 
                         elif R2Cat2Quest4Status==1 and Team2Qestion == 4:
-                            team2 "Quest4"
+                            team2 "Вопрос за 400"
                             jump R2Cat2Quest4
 
                         elif R2Cat2Quest5Status==1 and Team2Qestion == 5:
-                            team2 "Quest5"
+                            team2 "Вопрос за 500"
                             jump R2Cat2Quest5
                         else:
                             "Этого вопроса нет"
@@ -5274,23 +5329,23 @@ label start:
                         team3 "Категория 2"
                         $Team3Qestion = renpy.random.randint(1,6)
                         if R2Cat2Quest1Status==1 and Team3Qestion == 1:
-                            team3 "Quest1"
+                            team3 "Вопрос за 100"
                             jump R2Cat2Quest1
 
                         elif R2Cat2Quest2Status==1 and Team3Qestion == 2:
-                            team3 "Quest2"
+                            team3 "Вопрос за 200"
                             jump R2Cat2Quest2
 
                         elif R2Cat2Quest3Status==1 and Team3Qestion == 3:
-                            team3 "Quest3"
+                            team3 "Вопрос за 300"
                             jump R2Cat2Quest3
 
                         elif R2Cat2Quest4Status==1 and Team3Qestion == 4:
-                            team3 "Quest4"
+                            team3 "Вопрос за 400"
                             jump R2Cat2Quest4
 
                         elif R2Cat2Quest5Status==1 and Team3Qestion == 5:
-                            team3 "Quest5"
+                            team3 "Вопрос за 500"
                             jump R2Cat2Quest5
                         else:
                             "Этого вопроса нет"
@@ -6095,23 +6150,23 @@ label start:
                         team1 "Категория 3"
                         $Team1Qestion = renpy.random.randint(1,6)
                         if R1Cat3Quest1Status==1 and Team1Qestion == 1:
-                            team1 "Quest1"
+                            team1 "Вопрос за 100"
                             jump R1Cat3Quest1
 
                         elif R1Cat3Quest2Status==1 and Team1Qestion == 2:
-                            team1 "Quest2"
+                            team1 "Вопрос за 200"
                             jump R1Cat3Quest2
 
                         elif R1Cat3Quest3Status==1 and Team1Qestion == 3:
-                            team1 "Quest3"
+                            team1 "Вопрос за 300"
                             jump R1Cat3Quest3
 
                         elif R1Cat3Quest4Status==1 and Team1Qestion == 4:
-                            team1 "Quest4"
+                            team1 "Вопрос за 400"
                             jump R1Cat3Quest4
 
                         elif R1Cat3Quest5Status==1 and Team1Qestion == 5:
-                            team1 "Quest5"
+                            team1 "Вопрос за 500"
                             jump R1Cat3Quest5
                         else:
                             "Этого вопроса нет"
@@ -6121,23 +6176,23 @@ label start:
                         team2 "Категория 3"
                         $Team2Qestion = renpy.random.randint(1,6)
                         if R1Cat3Quest1Status==1 and Team1Qestion == 1:
-                            team2 "Quest1"
+                            team2 "Вопрос за 100"
                             jump R1Cat3Quest1
 
                         elif R1Cat3Quest2Status==1 and Team1Qestion == 2:
-                            team2 "Quest2"
+                            team2 "Вопрос за 200"
                             jump R1Cat3Quest2
 
                         elif R1Cat3Quest3Status==1 and Team1Qestion == 3:
-                            team2 "Quest3"
+                            team2 "Вопрос за 300"
                             jump R1Cat3Quest3
 
                         elif R1Cat3Quest4Status==1 and Team1Qestion == 4:
-                            team2 "Quest4"
+                            team2 "Вопрос за 400"
                             jump R1Cat3Quest4
 
                         elif R1Cat3Quest5Status==1 and Team1Qestion == 5:
-                            team2 "Quest5"
+                            team2 "Вопрос за 500"
                             jump R1Cat3Quest5
                         else:
                             "Этого вопроса нет"
@@ -6147,23 +6202,23 @@ label start:
                         team3 "Категория 3"
                         $Team3Qestion = renpy.random.randint(1,6)
                         if R1Cat3Quest1Status==1 and Team1Qestion == 1:
-                            team3 "Quest1"
+                            team3 "Вопрос за 100"
                             jump R1Cat3Quest1
 
                         elif R1Cat3Quest2Status==1 and Team1Qestion == 2:
-                            team3 "Quest2"
+                            team3 "Вопрос за 200"
                             jump R1Cat3Quest2
 
                         elif R1Cat3Quest3Status==1 and Team1Qestion == 3:
-                            team3 "Quest3"
+                            team3 "Вопрос за 300"
                             jump R1Cat3Quest3
 
                         elif R1Cat3Quest4Status==1 and Team1Qestion == 4:
-                            team3 "Quest4"
+                            team3 "Вопрос за 400"
                             jump R1Cat3Quest4
 
                         elif R1Cat3Quest5Status==1 and Team1Qestion == 5:
-                            team3 "Quest5"
+                            team3 "Вопрос за 500"
                             jump R1Cat3Quest5
                         else:
                             "Этого вопроса нет"
@@ -6968,23 +7023,23 @@ label start:
                         team1 "Категория 4"
                         $Team1Qestion = renpy.random.randint(1,6)
                         if R2Cat4Quest1Status==1 and Team1Qestion == 1:
-                            team1 "Quest1"
+                            team1 "Вопрос за 100"
                             jump R2Cat4Quest1
 
                         elif R2Cat4Quest2Status==1 and Team1Qestion == 2:
-                            team1 "Quest2"
+                            team1 "Вопрос за 200"
                             jump R2Cat4Quest2
 
                         elif R2Cat4Quest3Status==1 and Team1Qestion == 3:
-                            team1 "Quest3"
+                            team1 "Вопрос за 300"
                             jump R2Cat4Quest3
 
                         elif R2Cat4Quest4Status==1 and Team1Qestion == 4:
-                            team1 "Quest4"
+                            team1 "Вопрос за 400"
                             jump R2Cat4Quest4
 
                         elif R2Cat4Quest5Status==1 and Team1Qestion == 5:
-                            team1 "Quest5"
+                            team1 "Вопрос за 500"
                             jump R2Cat4Quest5
                         else:
                             "Этого вопроса нет"
@@ -6994,23 +7049,23 @@ label start:
                         team2 "Категория 3"
                         $Team2Qestion = renpy.random.randint(1,6)
                         if R2Cat4Quest1Status==1 and Team1Qestion == 1:
-                            team2 "Quest1"
+                            team2 "Вопрос за 100"
                             jump R2Cat4Quest1
 
                         elif R2Cat4Quest2Status==1 and Team1Qestion == 2:
-                            team2 "Quest2"
+                            team2 "Вопрос за 200"
                             jump R2Cat4Quest2
 
                         elif R2Cat4Quest3Status==1 and Team1Qestion == 3:
-                            team2 "Quest3"
+                            team2 "Вопрос за 300"
                             jump R2Cat4Quest3
 
                         elif R2Cat4Quest4Status==1 and Team1Qestion == 4:
-                            team2 "Quest4"
+                            team2 "Вопрос за 400"
                             jump R2Cat4Quest4
 
                         elif R2Cat4Quest5Status==1 and Team1Qestion == 5:
-                            team2 "Quest5"
+                            team2 "Вопрос за 500"
                             jump R2Cat4Quest5
                         else:
                             "Этого вопроса нет"
@@ -7020,23 +7075,23 @@ label start:
                         team3 "Категория 3"
                         $Team3Qestion = renpy.random.randint(1,6)
                         if R2Cat4Quest1Status==1 and Team1Qestion == 1:
-                            team3 "Quest1"
+                            team3 "Вопрос за 100"
                             jump R2Cat4Quest1
 
                         elif R2Cat4Quest2Status==1 and Team1Qestion == 2:
-                            team3 "Quest2"
+                            team3 "Вопрос за 200"
                             jump R2Cat4Quest2
 
                         elif R2Cat4Quest3Status==1 and Team1Qestion == 3:
-                            team3 "Quest3"
+                            team3 "Вопрос за 300"
                             jump R2Cat4Quest3
 
                         elif R2Cat4Quest4Status==1 and Team1Qestion == 4:
-                            team3 "Quest4"
+                            team3 "Вопрос за 400"
                             jump R2Cat4Quest4
 
                         elif R2Cat4Quest5Status==1 and Team1Qestion == 5:
-                            team3 "Quest5"
+                            team3 "Вопрос за 500"
                             jump R2Cat4Quest5
                         else:
                             "Этого вопроса нет"
@@ -7874,23 +7929,23 @@ label start:
                         team1 "Категория 1"
                         $Team1Qestion = renpy.random.randint(1,6)
                         if R3Cat1Quest1Status==1 and Team1Qestion == 1:
-                            team1 "Quest1"
+                            team1 "Вопрос за 100"
                             jump R3Cat1Quest1
 
                         elif R3Cat1Quest2Status==1 and Team1Qestion == 2:
-                            team1 "Quest2"
+                            team1 "Вопрос за 200"
                             jump R3Cat1Quest2
 
                         elif R3Cat1Quest3Status==1 and Team1Qestion == 3:
-                            team1 "Quest3"
+                            team1 "Вопрос за 300"
                             jump R3Cat1Quest3
 
                         elif R3Cat1Quest4Status==1 and Team1Qestion == 4:
-                            team1 "Quest4"
+                            team1 "Вопрос за 400"
                             jump R3Cat1Quest4
 
                         elif R3Cat1Quest5Status==1 and Team1Qestion == 5:
-                            team1 "Quest5"
+                            team1 "Вопрос за 500"
                             jump R3Cat1Quest5
                         else:
                             "Этого вопроса нет"
@@ -7900,23 +7955,23 @@ label start:
                         team2 "Категория 1"
                         $Team1Qestion = renpy.random.randint(1,6)
                         if R3Cat1Quest1Status==1 and Team1Qestion == 1:
-                            team2 "Quest1"
+                            team2 "Вопрос за 100"
                             jump R3Cat1Quest1
 
                         elif R3Cat1Quest2Status==1 and Team1Qestion == 2:
-                            team2 "Quest2"
+                            team2 "Вопрос за 200"
                             jump R3Cat1Quest2
 
                         elif R3Cat1Quest3Status==1 and Team1Qestion == 3:
-                            team2 "Quest3"
+                            team2 "Вопрос за 300"
                             jump R3Cat1Quest3
 
                         elif R3Cat1Quest4Status==1 and Team1Qestion == 4:
-                            team2 "Quest4"
+                            team2 "Вопрос за 400"
                             jump R3Cat1Quest4
 
                         elif R2Cat1Quest5Status==1 and Team1Qestion == 5:
-                            team2 "Quest5"
+                            team2 "Вопрос за 500"
                             jump R2Cat1Quest5
                         else:
                             "Этого вопроса нет"
@@ -7926,23 +7981,23 @@ label start:
                         team3 "Категория 1"
                         $Team1Qestion = renpy.random.randint(1,6)
                         if R3Cat1Quest1Status==1 and Team1Qestion == 1:
-                            team3 "Quest1"
+                            team3 "Вопрос за 100"
                             jump R3Cat1Quest1
 
                         elif R3Cat1Quest2Status==1 and Team1Qestion == 2:
-                            team3 "Quest2"
+                            team3 "Вопрос за 200"
                             jump R3Cat1Quest2
 
                         elif R3Cat1Quest3Status==1 and Team1Qestion == 3:
-                            team3 "Quest3"
+                            team3 "Вопрос за 300"
                             jump R3Cat1Quest3
 
                         elif R3Cat1Quest4Status==1 and Team1Qestion == 4:
-                            team3 "Quest4"
+                            team3 "Вопрос за 400"
                             jump R3Cat1Quest4
 
                         elif R3Cat1Quest5Status==1 and Team1Qestion == 5:
-                            team3 "Quest5"
+                            team3 "Вопрос за 500"
                             jump R3Cat1Quest5
                         else:
                             "Этого вопроса нет"
@@ -8747,23 +8802,23 @@ label start:
                         team1 "Категория 2"
                         $Team1Qestion = renpy.random.randint(1,6)
                         if R3Cat2Quest1Status==1 and Team1Qestion == 1:
-                            team1 "Quest1"
+                            team1 "Вопрос за 100"
                             jump R3Cat2Quest1
 
                         elif R3Cat2Quest2Status==1 and Team1Qestion == 2:
-                            team1 "Quest2"
+                            team1 "Вопрос за 200"
                             jump R3Cat2Quest2
 
                         elif R3Cat2Quest3Status==1 and Team1Qestion == 3:
-                            team1 "Quest3"
+                            team1 "Вопрос за 300"
                             jump R3Cat2Quest3
 
                         elif R3Cat2Quest4Status==1 and Team1Qestion == 4:
-                            team1 "Quest4"
+                            team1 "Вопрос за 400"
                             jump R3Cat2Quest4
 
                         elif R3Cat2Quest5Status==1 and Team1Qestion == 5:
-                            team1 "Quest5"
+                            team1 "Вопрос за 500"
                             jump R3Cat2Quest5
                         else:
                             "Этого вопроса нет"
@@ -8773,23 +8828,23 @@ label start:
                         team2 "Категория 2"
                         $Team2Qestion = renpy.random.randint(1,6)
                         if R3Cat2Quest1Status==1 and Team2Qestion == 1:
-                            team2 "Quest1"
+                            team2 "Вопрос за 100"
                             jump R3Cat2Quest1
 
                         elif R3Cat2Quest2Status==1 and Team2Qestion == 2:
-                            team2 "Quest2"
+                            team2 "Вопрос за 200"
                             jump R3Cat2Quest2
 
                         elif R3Cat2Quest3Status==1 and Team2Qestion == 3:
-                            team2 "Quest3"
+                            team2 "Вопрос за 300"
                             jump R3Cat2Quest3
 
                         elif R3Cat2Quest4Status==1 and Team2Qestion == 4:
-                            team2 "Quest4"
+                            team2 "Вопрос за 400"
                             jump R3Cat2Quest4
 
                         elif R3Cat2Quest5Status==1 and Team2Qestion == 5:
-                            team2 "Quest5"
+                            team2 "Вопрос за 500"
                             jump R3Cat2Quest5
                         else:
                             "Этого вопроса нет"
@@ -8799,23 +8854,23 @@ label start:
                         team3 "Категория 2"
                         $Team3Qestion = renpy.random.randint(1,6)
                         if R3Cat2Quest1Status==1 and Team3Qestion == 1:
-                            team3 "Quest1"
+                            team3 "Вопрос за 100"
                             jump R3Cat2Quest1
 
                         elif R3Cat2Quest2Status==1 and Team3Qestion == 2:
-                            team3 "Quest2"
+                            team3 "Вопрос за 200"
                             jump R3Cat2Quest2
 
                         elif R3Cat2Quest3Status==1 and Team3Qestion == 3:
-                            team3 "Quest3"
+                            team3 "Вопрос за 300"
                             jump R3Cat2Quest3
 
                         elif R3Cat2Quest4Status==1 and Team3Qestion == 4:
-                            team3 "Quest4"
+                            team3 "Вопрос за 400"
                             jump R3Cat2Quest4
 
                         elif R3Cat2Quest5Status==1 and Team3Qestion == 5:
-                            team3 "Quest5"
+                            team3 "Вопрос за 500"
                             jump R3Cat2Quest5
                         else:
                             "Этого вопроса нет"
@@ -9620,23 +9675,23 @@ label start:
                         team1 "Категория 3"
                         $Team1Qestion = renpy.random.randint(1,6)
                         if R3Cat3Quest1Status==1 and Team1Qestion == 1:
-                            team1 "Quest1"
+                            team1 "Вопрос за 100"
                             jump R3Cat3Quest1
 
                         elif R3Cat3Quest2Status==1 and Team1Qestion == 2:
-                            team1 "Quest2"
+                            team1 "Вопрос за 200"
                             jump R3Cat3Quest2
 
                         elif R3Cat3Quest3Status==1 and Team1Qestion == 3:
-                            team1 "Quest3"
+                            team1 "Вопрос за 300"
                             jump R2Cat3Quest3
 
                         elif R3Cat3Quest4Status==1 and Team1Qestion == 4:
-                            team1 "Quest4"
+                            team1 "Вопрос за 400"
                             jump R3Cat3Quest4
 
                         elif R3Cat3Quest5Status==1 and Team1Qestion == 5:
-                            team1 "Quest5"
+                            team1 "Вопрос за 500"
                             jump R3Cat3Quest5
                         else:
                             "Этого вопроса нет"
@@ -9646,23 +9701,23 @@ label start:
                         team2 "Категория 3"
                         $Team2Qestion = renpy.random.randint(1,6)
                         if R3Cat3Quest1Status==1 and Team1Qestion == 1:
-                            team2 "Quest1"
+                            team2 "Вопрос за 100"
                             jump R3Cat3Quest1
 
                         elif R3Cat3Quest2Status==1 and Team1Qestion == 2:
-                            team2 "Quest2"
+                            team2 "Вопрос за 200"
                             jump R3Cat3Quest2
 
                         elif R3Cat3Quest3Status==1 and Team1Qestion == 3:
-                            team2 "Quest3"
+                            team2 "Вопрос за 300"
                             jump R3Cat3Quest3
 
                         elif R3Cat3Quest4Status==1 and Team1Qestion == 4:
-                            team2 "Quest4"
+                            team2 "Вопрос за 400"
                             jump R3Cat3Quest4
 
                         elif R3Cat3Quest5Status==1 and Team1Qestion == 5:
-                            team2 "Quest5"
+                            team2 "Вопрос за 500"
                             jump R3Cat3Quest5
                         else:
                             "Этого вопроса нет"
@@ -9672,23 +9727,23 @@ label start:
                         team3 "Категория 3"
                         $Team3Qestion = renpy.random.randint(1,6)
                         if R3Cat3Quest1Status==1 and Team1Qestion == 1:
-                            team3 "Quest1"
+                            team3 "Вопрос за 100"
                             jump R3Cat3Quest1
 
                         elif R3Cat3Quest2Status==1 and Team1Qestion == 2:
-                            team3 "Quest2"
+                            team3 "Вопрос за 200"
                             jump R3Cat3Quest2
 
                         elif R3Cat3Quest3Status==1 and Team1Qestion == 3:
-                            team3 "Quest3"
+                            team3 "Вопрос за 300"
                             jump R3Cat3Quest3
 
                         elif R3Cat3Quest4Status==1 and Team1Qestion == 4:
-                            team3 "Quest4"
+                            team3 "Вопрос за 400"
                             jump R3Cat3Quest4
 
                         elif R3Cat3Quest5Status==1 and Team1Qestion == 5:
-                            team3 "Quest5"
+                            team3 "Вопрос за 500"
                             jump R3Cat3Quest5
                         else:
                             "Этого вопроса нет"
@@ -10493,23 +10548,23 @@ label start:
                         team1 "Категория 4"
                         $Team1Qestion = renpy.random.randint(1,6)
                         if R3Cat4Quest1Status==1 and Team1Qestion == 1:
-                            team1 "Quest1"
+                            team1 "Вопрос за 100"
                             jump R3Cat4Quest1
 
                         elif R3Cat4Quest2Status==1 and Team1Qestion == 2:
-                            team1 "Quest2"
+                            team1 "Вопрос за 200"
                             jump R3Cat4Quest2
 
                         elif R3Cat4Quest3Status==1 and Team1Qestion == 3:
-                            team1 "Quest3"
+                            team1 "Вопрос за 300"
                             jump R3Cat4Quest3
 
                         elif R3Cat4Quest4Status==1 and Team1Qestion == 4:
-                            team1 "Quest4"
+                            team1 "Вопрос за 400"
                             jump R3Cat4Quest4
 
                         elif R3Cat4Quest5Status==1 and Team1Qestion == 5:
-                            team1 "Quest5"
+                            team1 "Вопрос за 500"
                             jump R3Cat4Quest5
                         else:
                             "Этого вопроса нет"
@@ -10519,23 +10574,23 @@ label start:
                         team2 "Категория 3"
                         $Team2Qestion = renpy.random.randint(1,6)
                         if R3Cat4Quest1Status==1 and Team1Qestion == 1:
-                            team2 "Quest1"
+                            team2 "Вопрос за 100"
                             jump R3Cat4Quest1
 
                         elif R3Cat4Quest2Status==1 and Team1Qestion == 2:
-                            team2 "Quest2"
+                            team2 "Вопрос за 200"
                             jump R3Cat4Quest2
 
                         elif R3Cat4Quest3Status==1 and Team1Qestion == 3:
-                            team2 "Quest3"
+                            team2 "Вопрос за 300"
                             jump R3Cat4Quest3
 
                         elif R3Cat4Quest4Status==1 and Team1Qestion == 4:
-                            team2 "Quest4"
+                            team2 "Вопрос за 400"
                             jump R3Cat4Quest4
 
                         elif R3Cat4Quest5Status==1 and Team1Qestion == 5:
-                            team2 "Quest5"
+                            team2 "Вопрос за 500"
                             jump R3Cat4Quest5
                         else:
                             "Этого вопроса нет"
@@ -10545,23 +10600,23 @@ label start:
                         team3 "Категория 3"
                         $Team3Qestion = renpy.random.randint(1,6)
                         if R3Cat4Quest1Status==1 and Team1Qestion == 1:
-                            team3 "Quest1"
+                            team3 "Вопрос за 100"
                             jump R3Cat4Quest1
 
                         elif R3Cat4Quest2Status==1 and Team1Qestion == 2:
-                            team3 "Quest2"
+                            team3 "Вопрос за 200"
                             jump R3Cat4Quest2
 
                         elif R3Cat4Quest3Status==1 and Team1Qestion == 3:
-                            team3 "Quest3"
+                            team3 "Вопрос за 300"
                             jump R3Cat4Quest3
 
                         elif R3Cat4Quest4Status==1 and Team1Qestion == 4:
-                            team3 "Quest4"
+                            team3 "Вопрос за 400"
                             jump R3Cat4Quest4
 
                         elif R3Cat4Quest5Status==1 and Team1Qestion == 5:
-                            team3 "Quest5"
+                            team3 "Вопрос за 500"
                             jump R3Cat4Quest5
                         else:
                             "Этого вопроса нет"
@@ -11346,23 +11401,28 @@ label start:
             label Final:
 
                 if OurTeamPoints > Team1Points and OurTeamPoints > Team2Points and OurTeamPoints > Team3Points:
-                    leader "Final for our team"
+                    leader "Поздравляем первую команду с победой! Выходите для получения призов"
 
                 elif Team1Points > OurTeamPoints and Team1Points > Team2Points and Team1Points > Team3Points:
 
                     if OurTeamPoints > Team2Points and OurTeamPoints > Team3Points:
 
-                        leader "Our team second place"
+                        leader "Поздравляем первую команду с вторым местом! Выходите для получения призов"
 
                     else:
                         
-                        gg "we suck"
-                
+                        gg "Да ладно вам ребят, ну в этот раз не выиграли, зато всегда есть шанс выиграть в следующий раз, а сегодня зато засветились."
+
+                        Member "По факту, но все равно грустно, я мог дома посидеть домашку поделать."
+
+                        gg "Домашку??? Кому ты врешь в доту бы фигачил или кс."
+
+                        Member "Пхех, подловил меня. "
                 elif Team2Points > OurTeamPoints and Team2Points > Team1Points and Team2Points > Team3Points:
                     
                     if OurTeamPoints > Team1Points and OurTeamPoints > Team3Points:
 
-                        leader "Our team second place"
+                        leader "Поздравляем первую команду с вторым местом! Выходите для получения призов"
 
                     else:
                         
@@ -11372,11 +11432,38 @@ label start:
                     
                     if OurTeamPoints > Team2Points and OurTeamPoints > Team1Points:
 
-                        leader "Our team second place"
+                        leader "Поздравляем первую команду с вторым местом! Выходите для получения призов"
 
                     else:
                         
                         gg "we suck"
 
+        label AfterFinal:
+
+            scene IritEnterevening
+            with Fade(0.5,0.5,1)
+
+            voice "После мероприятия стоит направиться домой и наш герой с этим согласен"
+
+            scene busStop
+            with Fade(1,0.7,1.7)
+            scene busOnStop
+            with Fade(0.5,0.5,1)
+            pause(2)
+
+            scene ggRoom
+            with Fade(0.5,0.5,1)
+
+            scene ggRoomBed
+            with Fade(0.5,0.5,1)
+
+            gg "Ну что, спокойной мне ночи"
+
+            scene blackSCreen
+            with Fade(0.5,0.5,1)
+
+            "Конец"
+
+        
 return
 

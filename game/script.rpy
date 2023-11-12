@@ -25,7 +25,8 @@ label start:
     $KrisReputation = 0 #Репутация с кристиной
     label Day0:
         label WAKE_UP_SAMURAI:
-            scene blackScreen
+
+            scene blacksreen
 
             voice "Давайте знакомиться. Я ваш путеводитель по мыслям этого...."
 
@@ -39,7 +40,7 @@ label start:
             gg "Да *****, почему я не завел несколько будильников? Нужно спешить в Урфу, не слишком-то хочется вылететь в первый день"
 
         label Waiting_Bus:
-            scene busStop
+            scene busstop
             with Fade(1,0.7,1.7)
 
             voice "ГГ приходит на остановку. Как бы то странно не было, но на ней было немноголюдно, несмотря на час пик."
@@ -48,23 +49,23 @@ label start:
 
             gg "Надеюсь я успею"
 
-            scene busOnStop
+            scene busonstop
             with Fade(0.5,0.5,1)
             pause(2)
 
         label Forward_UrFU:
 
-            scene UrFUenter
+            scene iritenter
             with Fade(0.5,0.5,1)
 
             gg "*Так, и где мои одногрупники*"
 
-            scene Goslingtable
+            scene goslingtable
             with Fade(0.5,0.5,1)
 
             pause(2)
 
-            scene Tolpa
+            scene tolpa
             with Fade(0.5,0.5,1)
 
             show kabak1
@@ -332,7 +333,7 @@ label start:
 
         label Turn:
             
-            scene IritEnter
+            scene iritturn
             with Fade(0.5,0.5,1)
 
             gg "Чёртовы пробки, не успеваю"
@@ -476,9 +477,9 @@ label start:
 
             gg "*Ну вот и закончился мой первый учебный день в Уральском Федеральном. Надеюсь, здесь я исполню все свои желания*"
 
-            scene busStop
+            scene busstop
             with Fade(1,0.7,1.7)
-            scene busOnStop
+            scene busonstop
             with Fade(0.5,0.5,1)
             pause(2)
 
@@ -11452,9 +11453,9 @@ label start:
 
             voice "После мероприятия стоит направиться домой и наш герой с этим согласен"
 
-            scene busStop
+            scene busstop
             with Fade(1,0.7,1.7)
-            scene busOnStop
+            scene busonstop
             with Fade(0.5,0.5,1)
             pause(2)
 

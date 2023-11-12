@@ -1,4 +1,4 @@
-Sun Nov 12 12:08:22 2023
+Sun Nov 12 17:13:54 2023
 Windows-10-10.0.22621
 Ren'Py 8.1.3.23091805
  
@@ -6,36 +6,35 @@ Ren'Py 8.1.3.23091805
 Bootstrap to the start of init.init. took 0.03s
 Early init. took 0.00s
 Loader init. took 0.02s
-Loading error handling. took 0.04s
-Loading script. took 1.17s
-Loading save slot metadata. took 0.03s
+Loading error handling. took 0.03s
+Loading script. took 0.19s
+Loading save slot metadata. took 0.21s
 Loading persistent. took 0.00s
-Running init code. took 0.05s
+Running init code. took 0.04s
 Loading analysis data. took 0.01s
 Analyze and compile ATL. took 0.00s
 Reloading save slot metadata. took 0.02s
 Index archives took 0.00s
-Backing up script files to 'C:\\Users\\lugin\\AppData\\Roaming/RenPy/backups\\Test':
 Dump and make backups. took 0.04s
 Cleaning cache. took 0.00s
 Making clean stores. took 0.00s
-Initial gc. took 0.03s
+Initial gc. took 0.02s
 DPI scale factor: 1.000000
 nvdrs: Loaded, about to disable thread optimizations.
 nvdrs: b"Couldn't load nvlib." (can be ignored)
 Creating interface object. took 0.00s
 Cleaning stores took 0.00s
-Init translation took 0.03s
+Init translation took 0.04s
 Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.01s
-Save screen analysis took 0.01s
+Load screen analysis took 0.02s
+Analyze screens took 0.00s
+Save screen analysis took 0.00s
 Prepare screens took 0.04s
 Save pyanalysis. took 0.00s
-Save bytecode. took 0.04s
+Save bytecode. took 0.00s
 Running _start took 0.00s
 Performance test:
-Interface start. took 0.08s
+Interface start. took 0.12s
 
 Initializing gl2 renderer:
 primary display bounds: (0, 0, 2560, 1440)
@@ -46,4 +45,20 @@ Renderer: b'AMD Radeon RX 6900 XT'
 Version: b'4.6.0 Compatibility Profile Context 23.10.1.230929'
 Display Info: None
 Screen sizes: virtual=(1920, 1080) physical=(1378, 775) drawable=(1378, 775)
+Maximum texture size: 4096x4096
+Screen sizes: virtual=(1920, 1080) physical=(2560, 1369) drawable=(2560, 1369)
+Maximum texture size: 4096x4096
+Screen sizes: virtual=(1920, 1080) physical=(1378, 775) drawable=(1378, 775)
+Maximum texture size: 4096x4096
+Screen sizes: virtual=(1920, 1080) physical=(1695, 918) drawable=(1695, 918)
+Maximum texture size: 4096x4096
+Screen sizes: virtual=(1920, 1080) physical=(1652, 918) drawable=(1652, 918)
+Maximum texture size: 4096x4096
+Screen sizes: virtual=(1920, 1080) physical=(1642, 918) drawable=(1642, 918)
+Maximum texture size: 4096x4096
+Screen sizes: virtual=(1920, 1080) physical=(1629, 918) drawable=(1629, 918)
+Maximum texture size: 4096x4096
+Screen sizes: virtual=(1920, 1080) physical=(2560, 1369) drawable=(2560, 1369)
+Maximum texture size: 4096x4096
+Screen sizes: virtual=(1920, 1080) physical=(1629, 918) drawable=(1629, 918)
 Maximum texture size: 4096x4096

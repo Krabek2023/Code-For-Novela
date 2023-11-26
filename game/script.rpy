@@ -17,12 +17,17 @@ define team3 = Character('Бикини Ботом', color = "#ac2d06")
 # Игра начинается здесь:
 label start:
 
-    $Money = 500 #Кол-во денег в рублях
-    $Grade = 0 #Успеваемость в процентах 50 = 100%  0 = 50% -50 = 0% при -10 и ниже блок выборов
-    $GradeMod = 1 #Множитель успеваемости. Единождый бонус
-    $Reputation = 0 #Репутация
-    $KabakReputation = 0 #Репутация с максом
-    $KrisReputation = 0 #Репутация с кристиной
+    $ timez = 0
+    $ time_range = 0
+    $ Money = 500 #Кол-во денег в рублях
+    $ Grade = 0 #Успеваемость в процентах 50 = 100%  0 = 50% -50 = 0% при -10 и ниже блок выборов
+    $ GradeMod = 1 #Множитель успеваемости. Единождый бонус
+    $ Reputation = 0 #Репутация
+    $ KabakReputation = 0 #Репутация с максом
+    $ KrisReputation = 0 #Репутация с кристиной
+
+    $ timer_onoff = False
+
     label Day0:
         label WAKE_UP_SAMURAI:
 
@@ -37,7 +42,7 @@ label start:
             scene ggRoomBed
             with Fade(0.5,0.5,1)
 
-            gg "Да *****, почему я не завел несколько будильников? Нужно спешить в Урфу, не слишком-то хочется вылететь в первый день"
+            gg "Да емаё, почему я не завёл несколько будильников? Нужно спешить в универ! не слишком-то хочется опоздать в первый день..."
 
         label Waiting_Bus:
             scene busstop
@@ -65,7 +70,7 @@ label start:
 
             pause(2)
 
-            scene tolpa
+            scene iritenter
             with Fade(0.5,0.5,1)
 
             show kabak1
@@ -86,10 +91,10 @@ label start:
 
             voice "Спустя энное количество времени их всех отправляют во внутрь. ГГ нашёл себе новых друзей"
 
-            voice "И самим собой 'Запомнил' имена своих одногрупников. Благо он запомнил своих наставников, а то его бы армяне уграли"
+            voice "И само собой 'Запомнил' имена своих одногрупников. Благо он запомнил своих наставников, а то его бы армяне украли"
 
         label Studik_for_everyone:
-            scene RadAud
+            scene radaudit
             with Fade(1,1,2)
 
             voice "После провёденного инструктажа, всем пекусам выдали их студики"
@@ -100,7 +105,7 @@ label start:
             gg "Не. Всё-таки красивые у нас студики"
 
         label Profsoyz:
-            scene blackScreen
+            scene blackscreen
             with Fade(1,1,2)
 
             voice "Сейчас наш главный герой направляеться в коворкинг"
@@ -160,16 +165,13 @@ label start:
 
             voice "Наш герой отправился на ярмарку. Чтож не будем ему мешать"
 
-            scene Guk
+            scene guk
             with Fade(1,1,2)
 
-            scene GukVejer
+            scene gukvejer
             with Fade(1,1,2)
 
             gg "Ого уже вечер. Ладно поцаны я поду. До встречи"
-
-            scene ObhagaVejer
-            with Fade(1,1,2)
 
             scene ggRoom
             with Fade(1,2,3)
@@ -183,7 +185,7 @@ label start:
             scene ggRoomComp
             with Fade(0.5,0.5,1)
 
-            scene blackScreen
+            scene blackscreen
             with Fade(0.5,0.5,1)
 
             "Спустя одну слитую катку"
@@ -191,7 +193,7 @@ label start:
             scene ggRoomComp
             with Fade(0.5,0.5,1)
 
-            gg "Ладно я щас злой. Лучше на боковую"
+            gg "Ладно завтра на учёбу. Лучше лечь спать"
 
             scene ggRoomBed
             with Fade(0.5,0.5,1)
@@ -226,16 +228,16 @@ label start:
 
                 gg "Думаю стоит написать Максу"
 
-                gg "Надуюсь он сможет мне помочь"
+                gg "Надеюсь он сможет мне помочь"
 
-                voice "Неужто наш Абалдуй решил взяться за ум........................................ брух"
+                voice "Неужто наш Абалдуй решил взяться за ум."
 
                 scene ggRoomCompVK
                 with Fade(0.5,0.5,1)
 
                 "Текс в переписке"
 
-                gg "Дарова Макс, посабишь с модеусом заморским"
+                gg "Дарова Макс, подсабишь с модеусом заморским"
 
                 Kabak "Привет, да помогу, не проблема"
 
@@ -320,7 +322,7 @@ label start:
             
             pause(1.5)
 
-            voice "Наш безимянный впал в ступор. Не будем ему мешать пусть отдохнёт, ведь завтра надинаеться учёба"
+            voice "Наш безымянный впал в ступор. Не будем ему мешать пусть отдохнёт, ведь завтра надинаеться учёба"
 
     label Day2:
 
@@ -340,18 +342,18 @@ label start:
 
             show fahta1
 
-            Fahta "А ну стоять. Студ билет показал!"
+            Fahta "А ну-ка стой! Предъяви свой студенческий билет!"
 
             menu: 
                 gg "Блин, где этот студик"
-                "Показать":
+                "Да, конечно, сейчас достану.":
                     jump TurnGood
                 "Нафиг надо":
                     jump TurnBad
             
             label TurnGood:
 
-                gg "Вот"
+                gg "Вот, держите"
 
                 show fahta2
 
@@ -373,26 +375,26 @@ label start:
 
             label TurnBad:
 
-                gg "*Нахер надо, щас в толпе затеряюсь и всё ок будет*"
+                gg "*Мцц.., буду еще время тратить, быстро пробегу и затеряюсь в толпе*"
 
                 voice "Уфффф, турнекетом прямо по ногам. Наверно больно"
 
                 show fahta1
 
-                Fahta "КУДА ПОЛЕЗ, А НУС ИДИ СЮДА"
+                Fahta "А ну СТООЙ!!!"
 
-                Fahta "Всё идём в деканат"
+                Fahta "А ну ка пройдем со мной в деканат на разъяснительную беседу"
 
                 hide fahta1
 
                 scene dekonat
                 with Fade(0.2,0.2,0.4)
 
-                gg "Может не нада, я первый день. Я на пару опаздываю"
+                gg "Извините пожалуйста, я просто опаздывал на пару, я только первый день..."
 
                 Fahta "Первый, не первый, мне все-равно, пошли"
 
-                scene blackScreen
+                scene blackscreen
                 with Fade(0.2,0.2,0.4)
 
                 voice "После ВЕСЬМА поучительной беседы гг отпускают"
@@ -410,18 +412,18 @@ label start:
 
             label Dinner:
 
-                scene IritSiteEnter
+                scene iritenter
                 with Fade(0.5,0.5,1)
 
                 gg "*Щас большак, время есть. Может сходить пообедать?*"
 
                 voice "Наш герой направился в столовую"
 
-                scene Kichen
+                scene kichen
                 with Fade(0.5,0.5,1)
 
                 menu:
-                    gg "*Чтобы выбрать*"
+                    gg "*Что бы выбрать*"
                     "Перекус":
                         jump Butter
                     "Полноценный обед" if Money >= 200:
@@ -445,7 +447,7 @@ label start:
 
         label Audit:
 
-            scene ProgAudit
+            scene progaudit
             with Fade(1,1,2)
 
             show prepod1
@@ -466,13 +468,13 @@ label start:
             
             show prepod1
             
-            Prepod "На этом закончим, можете быть свободны"
+            Prepod "На этом занятия окончены, можете быть свободны"
 
             All "Спасибо, до свидания"
 
         label AfterStuding1:
             
-            scene IritEnterevening
+            scene iritenterevening
             with Fade(1,1,2)
 
             gg "*Ну вот и закончился мой первый учебный день в Уральском Федеральном. Надеюсь, здесь я исполню все свои желания*"
@@ -492,7 +494,7 @@ label start:
 
         label Raspisanie:
             
-            scene ggRoomBed
+            scene ggroomBed
             with Fade(0.5,0.5,1)
 
             gg "Да уж, ну и ну, столько всего по программированию позадавали."
@@ -513,7 +515,7 @@ label start:
 
         label Fhod:
 
-            scene IritEnter
+            scene iritturn
             with Fade(0.5,0.5,1)
 
             if Ending == 1:
@@ -544,7 +546,7 @@ label start:
 
         label History:
 
-            scene RadAud
+            scene audhist
             with Fade(0.5,0.5,1)
 
             show prepod2
@@ -578,7 +580,7 @@ label start:
 
         label ProgaDay3:
             
-            scene Audit
+            scene prodaudit
             with Fade(0.5,0.5,1)
 
             show prepod1
@@ -662,10 +664,9 @@ label start:
 
                 voice "После этого наш Абалдуй направился домой. Пожелаем ему спокойной ночи" 
 
-            scene blackScreen
+            scene blackscreen
             with Fade(0.5,0.5,1)
             
-            "[Reputation] [Money] [Grade]"
 
     label Day4:
         
@@ -678,7 +679,7 @@ label start:
             
             voice "Давайте опустим всё лишнее по типу того как наш герой снова проснулся у себя"
 
-            scene Audit1
+            scene progaudit
             with Fade(0.5,0.5,1)
 
             show prepod1
@@ -698,6 +699,8 @@ label start:
                     jump GoToHome
 
         label SvoiaIgra:
+
+            $ timer_onoff = True
 
             scene coworking1
             with Fade(0.5,0.5,1)
@@ -827,7 +830,6 @@ label start:
             $ R3Cat4Quest4Status = True             
             $ R3Cat4Quest5Status = True
 
-            
 
             label Round1:
                 
@@ -861,10 +863,65 @@ label start:
                             jump Round1Cat3
                         "Мультфильмы" if R1Cat2Status == True:
                             jump Round1Cat4
-                    
+                elif Turn == 2 : 
+                        $Team1Qestion = renpy.random.randint(1,5)
+                        if R1Cat1Status==1 and Team1Qestion == 1:
+                            team1 "Категория 1"
+                            jump Round1Cat1
+
+                        elif R1Cat2Status==1 and Team1Qestion == 2:
+                            team1 "Категория 2"
+                            jump Round1Cat2
+
+                        elif R1Cat3Status==1 and Team1Qestion == 3:
+                            team1 "Категория 3"
+                            jump Round1Cat3
+
+                        elif R1Cat4Status==1 and Team1Qestion == 4:
+                            team1 "Категория 4"
+                            jump Round1Cat4    
+
+                elif Turn == 3: 
+                    $Team1Qestion = renpy.random.randint(1,5)
+                    if R1Cat1Status==1 and Team1Qestion == 1:
+                        team2 "Категория 1"
+                        jump Round1Cat1
+
+                    elif R1Cat2Status==1 and Team1Qestion == 2:
+                        team2 "Категория 2"
+                        jump Round1Cat2
+
+                    elif R1Cat3Status==1 and Team1Qestion == 3:
+                        team2 "Категория 3"
+                        jump Round1Cat3
+
+                    elif R1Cat4Status==1 and Team1Qestion == 4:
+                        team2 "Категория 4"
+                        jump Round1Cat4
+
+                elif Turn == 4: 
+                    $Team1Qestion = renpy.random.randint(1,5)
+                    if R1Cat1Status==1 and Team1Qestion == 1:
+                        team3 "Категория 1"
+                        jump Round1Cat1
+
+                    elif R1Cat2Status==1 and Team1Qestion == 2:
+                        team3 "Категория 2"
+                        jump Round1Cat2
+
+                    elif R1Cat3Status==1 and Team1Qestion == 3:
+                        team3 "Категория 3"
+                        jump Round1Cat3
+
+                    elif R1Cat4Status==1 and Team1Qestion == 4:
+                        team3 "Категория 4"
+                        jump Round1Cat4    
  
                 label Round1Cat1:
                     
+                    $ timez = 300
+                    $ time_range = 300
+
                     if Turn == 1: 
                         gg "Георафия"
                         menu: 
@@ -962,6 +1019,9 @@ label start:
                             jump Round1Cat1 
                     
                     label R1Cat1Quest1:
+
+                        $ timez = 300
+                        $ time_range = 300
 
                         leader "Вопрос за 100"
                         "Вопрос"
@@ -1118,6 +1178,9 @@ label start:
 
                     label R1Cat1Quest2:
 
+                        $ timez = 300
+                        $ time_range = 300
+
                         leader "Вопрос за 200"
                         "Вопрос"
                         if Turn == 1 :
@@ -1272,6 +1335,9 @@ label start:
                                 jump Round1
 
                     label R1Cat1Quest3:
+                        
+                        $ timez = 300
+                        $ time_range = 300
 
                         leader "Вопрос за 300"
                         "Вопрос"
@@ -1427,6 +1493,9 @@ label start:
                                 jump Round1
                     
                     label R1Cat1Quest4:
+
+                        $ timez = 300
+                        $ time_range = 300
 
                         leader "Вопрос за 400"
                         "Вопрос"
@@ -1584,6 +1653,9 @@ label start:
 
                     label R1Cat1Quest5:
 
+                        $ timez = 300
+                        $ time_range = 300
+
                         leader "Вопрос за 500"
                         "Вопрос"
                         if Turn == 1 :
@@ -1738,6 +1810,9 @@ label start:
 
                 label Round1Cat2:
                     
+                    $ timez = 300
+                    $ time_range = 300
+
                     if Turn == 1: 
                         gg "Категория 2"
                         menu: 
@@ -1835,6 +1910,9 @@ label start:
                             jump Round1Cat2
                     
                     label R1Cat2Quest1:
+
+                        $ timez = 300
+                        $ time_range = 300
 
                         leader "Вопрос за 100"
                         "Вопрос"
@@ -1991,6 +2069,10 @@ label start:
 
                     label R1Cat2Quest2:
 
+                        $ timez = 300
+                        $ time_range = 300
+
+
                         leader "Вопрос за 200"
                         "Вопрос"
                         if Turn == 1 :
@@ -2145,6 +2227,9 @@ label start:
                                 jump Round1
 
                     label R1Cat2Quest3:
+                        
+                        $ timez = 300
+                        $ time_range = 300
 
                         leader "Вопрос за 300"
                         "Вопрос"
@@ -2301,6 +2386,9 @@ label start:
                     
                     label R1Cat2Quest4:
 
+                        $ timez = 300
+                        $ time_range = 300
+
                         leader "Вопрос за 400"
                         "Вопрос"
                         if Turn == 1 :
@@ -2455,6 +2543,9 @@ label start:
                                 jump Round1
 
                     label R1Cat2Quest5:
+
+                        $ timez = 300
+                        $ time_range = 300
 
                         leader "Вопрос за 500"
                         "Вопрос"
@@ -2611,6 +2702,9 @@ label start:
 
                 label Round1Cat3:
                     
+                    $ timez = 300
+                    $ time_range = 300
+
                     if Turn == 1: 
                         gg "Категория 3"
                         menu: 
@@ -2708,6 +2802,9 @@ label start:
                             jump Round1Cat3
                     
                     label R1Cat3Quest1:
+
+                        $ timez = 300
+                        $ time_range = 300
 
                         leader "Вопрос за 100"
                         "Вопрос"
@@ -2864,6 +2961,9 @@ label start:
 
                     label R1Cat3Quest2:
 
+                        $ timez = 300
+                        $ time_range = 300
+
                         leader "Вопрос за 200"
                         "Вопрос"
                         if Turn == 1 :
@@ -3018,6 +3118,9 @@ label start:
                                 jump Round1
 
                     label R1Cat3Quest3:
+
+                        $ timez = 300
+                        $ time_range = 300
 
                         leader "Вопрос за 300"
                         "Вопрос"
@@ -3174,6 +3277,9 @@ label start:
                     
                     label R1Cat3Quest4:
 
+                        $ timez = 300
+                        $ time_range = 300
+
                         leader "Вопрос за 400"
                         "Вопрос"
                         if Turn == 1 :
@@ -3328,6 +3434,9 @@ label start:
                                 jump Round1
 
                     label R1Cat3Quest5:
+
+                        $ timez = 300
+                        $ time_range = 300
 
                         leader "Вопрос за 500"
                         "Вопрос"
@@ -3484,6 +3593,9 @@ label start:
 
                 label Round1Cat4:
                     
+                    $ timez = 300
+                    $ time_range = 300
+
                     if Turn == 1: 
                         gg "Категория 4"
                         menu: 
@@ -3581,6 +3693,9 @@ label start:
                             jump Round1Cat4
                     
                     label R1Cat4Quest1:
+
+                        $ timez = 300
+                        $ time_range = 300
 
                         leader "Вопрос за 100"
                         "Вопрос"
@@ -3737,6 +3852,9 @@ label start:
 
                     label R1Cat4Quest2:
 
+                        $ timez = 300
+                        $ time_range = 300
+
                         leader "Вопрос за 200"
                         "Вопрос"
                         if Turn == 1 :
@@ -3891,6 +4009,9 @@ label start:
                                 jump Round1
 
                     label R1Cat4Quest3:
+
+                        $ timez = 300
+                        $ time_range = 300
 
                         leader "Вопрос за 300"
                         "Вопрос"
@@ -4048,6 +4169,9 @@ label start:
                     
                     label R1Cat4Quest4:
 
+                        $ timez = 300
+                        $ time_range = 300
+
                         leader "Вопрос за 400"
                         "Вопрос"
                         if Turn == 1 :
@@ -4202,6 +4326,9 @@ label start:
                                 jump Round1
 
                     label R1Cat4Quest5:
+
+                        $ timez = 300
+                        $ time_range = 300
 
                         leader "Вопрос за 500"
                         "Вопрос"
@@ -4358,6 +4485,8 @@ label start:
 
             label Round2:
 
+                $ timez = 300
+                $ time_range = 300
                 if R1Categories == 1:
                     jump Round3
 
@@ -4375,7 +4504,8 @@ label start:
 
                 if R2Cat4Quest1Status == False and R2Cat4Quest2Status == False and R2Cat4Quest3Status == False and R2Cat4Quest4Status == False and R2Cat4Quest5Status == False:
                     $ R1Cat4Status = False
-                    $ R1Categories -=1        
+                    $ R1Categories -=1
+
                 if Turn == 1:
                     menu:
                         "Категория 1" if R1Cat1Status == True:
@@ -4386,10 +4516,66 @@ label start:
                             jump Round2Cat3
                         "Категория 4" if R1Cat2Status == True:
                             jump Round2Cat4
-                    
+
+                elif Turn == 2 : 
+                        $Team1Qestion = renpy.random.randint(1,5)
+                        if R1Cat1Status==1 and Team1Qestion == 1:
+                            team1 "Категория 1"
+                            jump Round2Cat1
+
+                        elif R1Cat2Status==1 and Team1Qestion == 2:
+                            team1 "Категория 2"
+                            jump Round2Cat2
+
+                        elif R1Cat3Status==1 and Team1Qestion == 3:
+                            team1 "Категория 3"
+                            jump Round2Cat3
+
+                        elif R1Cat4Status==1 and Team1Qestion == 4:
+                            team1 "Категория 4"
+                            jump Round2Cat4    
+
+                elif Turn == 3: 
+                    $Team1Qestion = renpy.random.randint(1,5)
+                    if R1Cat1Status==1 and Team1Qestion == 1:
+                        team2 "Категория 1"
+                        jump Round2Cat1
+
+                    elif R1Cat2Status==1 and Team1Qestion == 2:
+                        team2 "Категория 2"
+                        jump Round2Cat2
+
+                    elif R1Cat3Status==1 and Team1Qestion == 3:
+                        team2 "Категория 3"
+                        jump Round2Cat3
+
+                    elif R1Cat4Status==1 and Team1Qestion == 4:
+                        team2 "Категория 4"
+                        jump Round2Cat4
+
+                elif Turn == 4: 
+                    $Team1Qestion = renpy.random.randint(1,5)
+                    if R1Cat1Status==1 and Team1Qestion == 1:
+                        team3 "Категория 1"
+                        jump Round2Cat1
+
+                    elif R1Cat2Status==1 and Team1Qestion == 2:
+                        team3 "Категория 2"
+                        jump Round2Cat2
+
+                    elif R1Cat3Status==1 and Team1Qestion == 3:
+                        team3 "Категория 3"
+                        jump Round2Cat3
+
+                    elif R1Cat4Status==1 and Team1Qestion == 4:
+                        team3 "Категория 4"
+                        jump Round2Cat4     
  
                 label Round2Cat1:
-                    
+
+                    $ timez = 300
+                    $ time_range = 300
+
                     if Turn == 1: 
                         gg "Категория 1"
                         menu: 
@@ -4487,6 +4673,9 @@ label start:
                             jump Round2Cat1 
                     
                     label R2Cat1Quest1:
+
+                        $ timez = 300
+                        $ time_range = 300
 
                         leader "Вопрос за 100"
                         "Вопрос"
@@ -4643,6 +4832,9 @@ label start:
 
                     label R2Cat1Quest2:
 
+                        $ timez = 300
+                        $ time_range = 300
+
                         leader "Вопрос за 200"
                         "Вопрос"
                         if Turn == 1 :
@@ -4798,6 +4990,9 @@ label start:
 
                     label R2Cat1Quest3:
 
+                        $ timez = 300
+                        $ time_range = 300
+
                         leader "Вопрос за 300"
                         "Вопрос"
                         if Turn == 1 :
@@ -4952,6 +5147,9 @@ label start:
                                 jump Round2
                     
                     label R2Cat1Quest4:
+
+                        $ timez = 300
+                        $ time_range = 300
 
                         leader "Вопрос за 400"
                         "Вопрос"
@@ -5109,6 +5307,9 @@ label start:
 
                     label R2Cat1Quest5:
 
+                        $ timez = 300
+                        $ time_range = 300
+
                         leader "Вопрос за 500"
                         "Вопрос"
                         if Turn == 1 :
@@ -5263,6 +5464,9 @@ label start:
 
                 label Round2Cat2:
                     
+                    $ timez = 300
+                    $ time_range = 300
+
                     if Turn == 1: 
                         gg "Категория 2"
                         menu: 
@@ -5360,6 +5564,9 @@ label start:
                             jump Round2Cat2
                     
                     label R2Cat2Quest1:
+
+                        $ timez = 300
+                        $ time_range = 300
 
                         leader "Вопрос за 100"
                         "Вопрос"
@@ -5516,6 +5723,9 @@ label start:
 
                     label R2Cat2Quest2:
 
+                        $ timez = 300
+                        $ time_range = 300
+
                         leader "Вопрос за 200"
                         "Вопрос"
                         if Turn == 1 :
@@ -5670,6 +5880,9 @@ label start:
                                 jump Round2
 
                     label R2Cat2Quest3:
+
+                        $ timez = 300
+                        $ time_range = 300
 
                         leader "Вопрос за 300"
                         "Вопрос"
@@ -5826,6 +6039,9 @@ label start:
                     
                     label R2Cat2Quest4:
 
+                        $ timez = 300
+                        $ time_range = 300
+
                         leader "Вопрос за 400"
                         "Вопрос"
                         if Turn == 1 :
@@ -5981,6 +6197,9 @@ label start:
 
                     label R2Cat2Quest5:
 
+                        $ timez = 300
+                        $ time_range = 300
+
                         leader "Вопрос за 500"
                         "Вопрос"
                         if Turn == 1 :
@@ -6135,7 +6354,10 @@ label start:
                                 jump Round2
 
                 label Round2Cat3:
-                    
+
+                    $ timez = 300
+                    $ time_range = 300
+
                     if Turn == 1: 
                         gg "Категория 3"
                         menu: 
@@ -7883,6 +8105,9 @@ label start:
 
             label Round3:
 
+                $ timez = 300
+                $ time_range = 300
+
                 if R1Categories == 1:
                     jump Final
 
@@ -7911,10 +8136,66 @@ label start:
                             jump Round3Cat3
                         "Категория 4" if R1Cat2Status == True:
                             jump Round3Cat4
-                    
+
+                elif Turn == 2 : 
+                        $Team1Qestion = renpy.random.randint(1,5)
+                        if R1Cat1Status==1 and Team1Qestion == 1:
+                            team1 "Категория 1"
+                            jump Round3Cat1
+
+                        elif R1Cat2Status==1 and Team1Qestion == 2:
+                            team1 "Категория 2"
+                            jump Round3Cat2
+
+                        elif R1Cat3Status==1 and Team1Qestion == 3:
+                            team1 "Категория 3"
+                            jump Round3Cat3
+
+                        elif R1Cat4Status==1 and Team1Qestion == 4:
+                            team1 "Категория 4"
+                            jump Round3Cat4    
+
+                elif Turn == 3: 
+                    $Team1Qestion = renpy.random.randint(1,5)
+                    if R1Cat1Status==1 and Team1Qestion == 1:
+                        team2 "Категория 1"
+                        jump Round3Cat1
+
+                    elif R1Cat2Status==1 and Team1Qestion == 2:
+                        team2 "Категория 2"
+                        jump Round3Cat2
+
+                    elif R1Cat3Status==1 and Team1Qestion == 3:
+                        team2 "Категория 3"
+                        jump Round3Cat3
+
+                    elif R1Cat4Status==1 and Team1Qestion == 4:
+                        team2 "Категория 4"
+                        jump Round3Cat4
+
+                elif Turn == 4: 
+                    $Team1Qestion = renpy.random.randint(1,5)
+                    if R1Cat1Status==1 and Team1Qestion == 1:
+                        team3 "Категория 1"
+                        jump Round3Cat1
+
+                    elif R1Cat2Status==1 and Team1Qestion == 2:
+                        team3 "Категория 2"
+                        jump Round3Cat2
+
+                    elif R1Cat3Status==1 and Team1Qestion == 3:
+                        team3 "Категория 3"
+                        jump Round3Cat3
+
+                    elif R1Cat4Status==1 and Team1Qestion == 4:
+                        team3 "Категория 4"
+                        jump Round3Cat4     
  
                 label Round3Cat1:
                     
+                    $ timez = 300
+                    $ time_range = 300
+
                     if Turn == 1: 
                         gg "Категория 1"
                         menu: 
@@ -8012,6 +8293,9 @@ label start:
                             jump Round3Cat1 
                     
                     label R3Cat1Quest1:
+
+                        $ timez = 300
+                        $ time_range = 300
 
                         leader "Вопрос за 100"
                         "Вопрос"
@@ -8168,6 +8452,9 @@ label start:
 
                     label R3Cat1Quest2:
 
+                        $ timez = 300
+                        $ time_range = 300
+
                         leader "Вопрос за 200"
                         "Вопрос"
                         if Turn == 1 :
@@ -8323,6 +8610,9 @@ label start:
 
                     label R3Cat1Quest3:
 
+                        $ timez = 300
+                        $ time_range = 300
+
                         leader "Вопрос за 300"
                         "Вопрос"
                         if Turn == 1 :
@@ -8477,6 +8767,9 @@ label start:
                                 jump Round3
                     
                     label R3Cat1Quest4:
+
+                        $ timez = 300
+                        $ time_range = 300
 
                         leader "Вопрос за 400"
                         "Вопрос"
@@ -8634,6 +8927,9 @@ label start:
 
                     label R3Cat1Quest5:
 
+                        $ timez = 300
+                        $ time_range = 300
+
                         leader "Вопрос за 500"
                         "Вопрос"
                         if Turn == 1 :
@@ -8788,6 +9084,9 @@ label start:
 
                 label Round3Cat2:
                     
+                    $ timez = 300
+                    $ time_range = 300
+
                     if Turn == 1: 
                         gg "Категория 2"
                         menu: 
@@ -8885,6 +9184,9 @@ label start:
                             jump Round3Cat2
                     
                     label R3Cat2Quest1:
+
+                        $ timez = 300
+                        $ time_range = 300
 
                         leader "Вопрос за 100"
                         "Вопрос"
@@ -9041,6 +9343,9 @@ label start:
 
                     label R3Cat2Quest2:
 
+                        $ timez = 300
+                        $ time_range = 300
+
                         leader "Вопрос за 200"
                         "Вопрос"
                         if Turn == 1 :
@@ -9195,6 +9500,9 @@ label start:
                                 jump Round3
 
                     label R3Cat2Quest3:
+
+                        $ timez = 300
+                        $ time_range = 300
 
                         leader "Вопрос за 300"
                         "Вопрос"
@@ -9351,6 +9659,9 @@ label start:
                     
                     label R3Cat2Quest4:
 
+                        $ timez = 300
+                        $ time_range = 300
+
                         leader "Вопрос за 400"
                         "Вопрос"
                         if Turn == 1 :
@@ -9506,6 +9817,9 @@ label start:
 
                     label R3Cat2Quest5:
 
+                        $ timez = 300
+                        $ time_range = 300
+
                         leader "Вопрос за 500"
                         "Вопрос"
                         if Turn == 1 :
@@ -9660,7 +9974,10 @@ label start:
                                 jump Round3
 
                 label Round3Cat3:
-                    
+
+                    $ timez = 300
+                    $ time_range = 300
+
                     if Turn == 1: 
                         gg "Категория 3"
                         menu: 
@@ -9757,7 +10074,10 @@ label start:
                             "Этого вопроса нет"
                             jump Round3Cat3
                     
-                    label R3Cat3Quest1:
+                    label R3Cat3Quest1: 
+
+                        $ timez = 300
+                        $ time_range = 300
 
                         leader "Вопрос за 100"
                         "Вопрос"
@@ -9914,6 +10234,9 @@ label start:
 
                     label R3Cat3Quest2:
 
+                        $ timez = 300
+                        $ time_range = 300
+
                         leader "Вопрос за 200"
                         "Вопрос"
                         if Turn == 1 :
@@ -10068,6 +10391,9 @@ label start:
                                 jump Round3
 
                     label R3Cat3Quest3:
+
+                        $ timez = 300
+                        $ time_range = 300
 
                         leader "Вопрос за 300"
                         "Вопрос"
@@ -10224,6 +10550,9 @@ label start:
                     
                     label R3Cat3Quest4:
 
+                        $ timez = 300
+                        $ time_range = 300
+
                         leader "Вопрос за 400"
                         "Вопрос"
                         if Turn == 1 :
@@ -10379,6 +10708,9 @@ label start:
 
                     label R3Cat3Quest5:
 
+                        $ timez = 300
+                        $ time_range = 300
+
                         leader "Вопрос за 500"
                         "Вопрос"
                         if Turn == 1 :
@@ -10533,7 +10865,10 @@ label start:
                                 jump Round3
 
                 label Round3Cat4:
-                    
+
+                    $ timez = 300
+                    $ time_range = 300
+
                     if Turn == 1: 
                         gg "Категория 4"
                         menu: 
@@ -10631,6 +10966,9 @@ label start:
                             jump Round3Cat4
                     
                     label R3Cat4Quest1:
+
+                        $ timez = 300
+                        $ time_range = 300
 
                         leader "Вопрос за 100"
                         "Вопрос"
@@ -10787,6 +11125,9 @@ label start:
 
                     label R3Cat4Quest2:
 
+                        $ timez = 300
+                        $ time_range = 300
+
                         leader "Вопрос за 200"
                         "Вопрос"
                         if Turn == 1 :
@@ -10941,6 +11282,9 @@ label start:
                                 jump Round3
 
                     label R3Cat4Quest3:
+
+                        $ timez = 300
+                        $ time_range = 300
 
                         leader "Вопрос за 300"
                         "Вопрос"
@@ -11098,6 +11442,9 @@ label start:
                     
                     label R3Cat4Quest4:
 
+                        $ timez = 300
+                        $ time_range = 300
+
                         leader "Вопрос за 400"
                         "Вопрос"
                         if Turn == 1 :
@@ -11252,6 +11599,9 @@ label start:
                                 jump Round3
 
                     label R3Cat4Quest5:
+
+                        $ timez = 300
+                        $ time_range = 300
 
                         leader "Вопрос за 500"
                         "Вопрос"
@@ -11467,7 +11817,7 @@ label start:
 
             gg "Ну что, спокойной мне ночи"
 
-            scene blackSCreen
+            scene blackscreen
             with Fade(0.5,0.5,1)
 
             "Конец"

@@ -206,7 +206,7 @@ style input:
 ## https://www.renpy.org/doc/html/screen_special.html#choice
 
 screen timerz:                                                                                                                   
-    timer 0.05 repeat True action If(timez > 0, SetVariable('timez', timez - 1))
+    timer 0.05 repeat True action If(timez > 0, SetVariable('timez', timez - 1), Jump(marker))
     bar value timez range time_range xalign .5 xmaximum 300
 
 screen choice(items):

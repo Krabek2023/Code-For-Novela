@@ -1,4 +1,4 @@
-Sun Nov 26 16:25:36 2023
+Sun Dec  3 12:16:54 2023
 Windows-10-10.0.22621
 Ren'Py 8.1.3.23091805
  
@@ -7,10 +7,75 @@ Bootstrap to the start of init.init. took 0.03s
 Early init. took 0.00s
 Loader init. took 0.02s
 Loading error handling. took 0.03s
-Loading script. took 1.36s
+Loading script. took 0.92s
 Loading save slot metadata. took 0.03s
 Loading persistent. took 0.00s
-Running init code. took 0.05s
+Running init code. took 0.04s
+Loading analysis data. took 0.01s
+Analyze and compile ATL. took 0.00s
+Reloading save slot metadata. took 0.02s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\lugin\\AppData\\Roaming/RenPy/backups\\PathOfProger':
+Dump and make backups. took 0.05s
+Cleaning cache. took 0.00s
+Making clean stores. took 0.00s
+Initial gc. took 0.02s
+DPI scale factor: 1.000000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: b"Couldn't load nvlib." (can be ignored)
+Creating interface object. took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.03s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.02s
+Prepare screens took 0.05s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.04s
+Running _start took 0.00s
+Performance test:
+Interface start. took 0.14s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'ATI Technologies Inc.'"
+Renderer: b'AMD Radeon RX 6900 XT'
+Version: b'4.6.0 Compatibility Profile Context 23.10.1.230929'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2560, 1369) drawable=(2560, 1369)
+Maximum texture size: 4096x4096
+
+Full traceback:
+  File "game/script_SYP.rpy", line 3890, in script
+    if RCat3Quest1Status == False and R1Cat3Quest2Status == False and R1Cat3Quest3Status == False and R1Cat3Quest4Status == False and R2Cat3Quest5Status == False:
+  File "E:\новела\renpy-8.1.3-sdk\renpy\ast.py", line 2133, in execute
+    if renpy.python.py_eval(condition):
+  File "E:\новела\renpy-8.1.3-sdk\renpy\python.py", line 1153, in py_eval
+    return py_eval_bytecode(code, globals, locals)
+  File "E:\новела\renpy-8.1.3-sdk\renpy\python.py", line 1146, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+  File "game/script_SYP.rpy", line 3890, in <module>
+    if RCat3Quest1Status == False and R1Cat3Quest2Status == False and R1Cat3Quest3Status == False and R1Cat3Quest4Status == False and R2Cat3Quest5Status == False:
+NameError: name 'RCat3Quest1Status' is not defined
+
+While running game code:
+  File "game/script_SYP.rpy", line 3890, in script
+    if RCat3Quest1Status == False and R1Cat3Quest2Status == False and R1Cat3Quest3Status == False and R1Cat3Quest4Status == False and R2Cat3Quest5Status == False:
+  File "game/script_SYP.rpy", line 3890, in <module>
+    if RCat3Quest1Status == False and R1Cat3Quest2Status == False and R1Cat3Quest3Status == False and R1Cat3Quest4Status == False and R2Cat3Quest5Status == False:
+NameError: name 'RCat3Quest1Status' is not defined
+Resetting cache.
+Bootstrap to the start of init.init. took 143.00s
+Early init. took 0.00s
+Loader init. took 0.02s
+Loading error handling. took 0.03s
+Loading script. took 0.70s
+Loading save slot metadata. took 0.02s
+Loading persistent. took 0.00s
+Running init code. took 0.02s
 Loading analysis data. took 0.01s
 Analyze and compile ATL. took 0.00s
 Reloading save slot metadata. took 0.02s
@@ -19,7 +84,7 @@ Backing up script files to 'C:\\Users\\lugin\\AppData\\Roaming/RenPy/backups\\Pa
 Dump and make backups. took 0.04s
 Cleaning cache. took 0.00s
 Making clean stores. took 0.00s
-Initial gc. took 0.03s
+Initial gc. took 0.04s
 DPI scale factor: 1.000000
 nvdrs: Loaded, about to disable thread optimizations.
 nvdrs: b"Couldn't load nvlib." (can be ignored)
@@ -32,123 +97,6 @@ Analyze screens took 0.01s
 Save screen analysis took 0.01s
 Prepare screens took 0.05s
 Save pyanalysis. took 0.00s
-Save bytecode. took 0.04s
-Running _start took 0.00s
-Performance test:
-Interface start. took 0.12s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 2560, 1440)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'ATI Technologies Inc.'"
-Renderer: b'AMD Radeon RX 6900 XT'
-Version: b'4.6.0 Compatibility Profile Context 23.10.1.230929'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(1628, 916) drawable=(1628, 916)
-Maximum texture size: 4096x4096
-
-Full traceback:
-  File "game/script.rpy", line 862, in script
-    menu:
-  File "E:\новела\renpy-8.1.3-sdk\renpy\ast.py", line 1922, in execute
-    choice = renpy.exports.menu(choices, self.set, args, kwargs, item_arguments)
-  File "E:\новела\renpy-8.1.3-sdk\renpy\exports.py", line 1106, in menu
-    rv = renpy.store.menu(new_items)
-  File "E:\новела\renpy-8.1.3-sdk\renpy\exports.py", line 1345, in display_menu
-    rv = renpy.ui.interact(mouse='menu', type=type, roll_forward=roll_forward)
-  File "E:\новела\renpy-8.1.3-sdk\renpy\ui.py", line 299, in interact
-    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
-  File "E:\новела\renpy-8.1.3-sdk\renpy\display\core.py", line 3582, in interact
-    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
-  File "E:\новела\renpy-8.1.3-sdk\renpy\display\core.py", line 4055, in interact_core
-    root_widget.visit_all(lambda d : d.per_interact())
-  File "E:\новела\renpy-8.1.3-sdk\renpy\display\core.py", line 684, in visit_all
-    d.visit_all(callback, seen)
-  File "E:\новела\renpy-8.1.3-sdk\renpy\display\core.py", line 684, in visit_all
-    d.visit_all(callback, seen)
-  File "E:\новела\renpy-8.1.3-sdk\renpy\display\core.py", line 684, in visit_all
-    d.visit_all(callback, seen)
-  File "E:\новела\renpy-8.1.3-sdk\renpy\display\screen.py", line 476, in visit_all
-    callback(self)
-  File "E:\новела\renpy-8.1.3-sdk\renpy\display\core.py", line 4055, in <lambda>
-    root_widget.visit_all(lambda d : d.per_interact())
-  File "E:\новела\renpy-8.1.3-sdk\renpy\display\screen.py", line 487, in per_interact
-    self.update()
-  File "E:\новела\renpy-8.1.3-sdk\renpy\display\screen.py", line 680, in update
-    self.screen.function(**self.scope)
-  File "game/screens.rpy", line 212, in execute
-    screen choice(items):
-  File "game/screens.rpy", line 212, in execute
-    screen choice(items):
-  File "game/screens.rpy", line 215, in execute
-    if timer_onoff == True:
-  File "game/screens.rpy", line 216, in execute
-    use timerz
-  File "game/screens.rpy", line 208, in execute
-    screen timerz:
-  File "game/screens.rpy", line 208, in execute
-    screen timerz:
-  File "game/screens.rpy", line 209, in execute
-    timer 0.05 repeat True action If(timez > 0, SetVariable('timez', timez - 1), Jump(marker))
-  File "game/screens.rpy", line 209, in keywords
-    timer 0.05 repeat True action If(timez > 0, SetVariable('timez', timez - 1), Jump(marker))
-  File "game/screens.rpy", line 209, in <module>
-    timer 0.05 repeat True action If(timez > 0, SetVariable('timez', timez - 1), Jump(marker))
-NameError: name 'marker' is not defined
-
-While running game code:
-  File "game/script.rpy", line 862, in script
-    menu:
-  File "game/screens.rpy", line 212, in execute
-    screen choice(items):
-  File "game/screens.rpy", line 212, in execute
-    screen choice(items):
-  File "game/screens.rpy", line 215, in execute
-    if timer_onoff == True:
-  File "game/screens.rpy", line 216, in execute
-    use timerz
-  File "game/screens.rpy", line 208, in execute
-    screen timerz:
-  File "game/screens.rpy", line 208, in execute
-    screen timerz:
-  File "game/screens.rpy", line 209, in execute
-    timer 0.05 repeat True action If(timez > 0, SetVariable('timez', timez - 1), Jump(marker))
-  File "game/screens.rpy", line 209, in keywords
-    timer 0.05 repeat True action If(timez > 0, SetVariable('timez', timez - 1), Jump(marker))
-  File "game/screens.rpy", line 209, in <module>
-    timer 0.05 repeat True action If(timez > 0, SetVariable('timez', timez - 1), Jump(marker))
-NameError: name 'marker' is not defined
-Resetting cache.
-Bootstrap to the start of init.init. took 41.25s
-Early init. took 0.00s
-Loader init. took 0.02s
-Loading error handling. took 0.04s
-Loading script. took 0.28s
-Loading save slot metadata. took 0.02s
-Loading persistent. took 0.00s
-Running init code. took 0.02s
-Loading analysis data. took 0.01s
-Analyze and compile ATL. took 0.00s
-Reloading save slot metadata. took 0.02s
-Index archives took 0.00s
-Backing up script files to 'C:\\Users\\lugin\\AppData\\Roaming/RenPy/backups\\PathOfProger':
-Dump and make backups. took 0.04s
-Cleaning cache. took 0.00s
-Making clean stores. took 0.00s
-Initial gc. took 0.06s
-DPI scale factor: 1.000000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: b"Couldn't load nvlib." (can be ignored)
-Creating interface object. took 0.00s
-Cleaning stores took 0.00s
-Init translation took 0.03s
-Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.01s
-Save screen analysis took 0.01s
-Prepare screens took 0.05s
-Save pyanalysis. took 0.01s
 Save bytecode. took 0.02s
 Running _start took 0.00s
 Performance test:
@@ -162,5 +110,5 @@ Vendor: "b'ATI Technologies Inc.'"
 Renderer: b'AMD Radeon RX 6900 XT'
 Version: b'4.6.0 Compatibility Profile Context 23.10.1.230929'
 Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(1628, 916) drawable=(1628, 916)
+Screen sizes: virtual=(1920, 1080) physical=(2560, 1369) drawable=(2560, 1369)
 Maximum texture size: 4096x4096

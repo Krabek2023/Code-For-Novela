@@ -1,42 +1,25 @@
-﻿# Вы можете расположить сценарий своей игры в этом файле.
+﻿label start:
 
-# Определение персонажей игры.
-define gg = Character('Олежа', color="#b7d436")
-define voice = Character('Рассказчик', color="#b7d436")
-define Kabak = Character('Макс Кабак(Самый сексуальный мужчина)', color='#b14f0e')
-define Kris = Character('Матерь Кристина', color = '#b10e44')
-define Fahta = Character('Вахтёр', color = '#b80e0e')
-define All = Character('Все', color = '#b7d436')
-define Prepod = Character('Преподаватель', color = "#ac2d06")
-define leader = Character('Ведущий', color = "#ac2d06")
-define Member = Character('Наш чел', color = "#ac2d06")
-define team1 = Character('Стрелки', color = "#ac2d06")
-define team2 = Character('Прилагательные', color = "#ac2d06")
-define team3 = Character('Бикини Ботом', color = "#ac2d06")
-define noname = Character('Неизвестый', color = "#ac2d06")
+    label Entering:
 
-# Игра начинается здесь:
-label start:
+        All "важаемый, Олег Степанович, а как у вас проходила студенческая жизнь, а то у нас ещё и сессия не началась или как она тут называется, а мы уже устали учиться."
 
-    $ timez = 0
-    $ time_range = 0
-    $ Money = 500 #Кол-во денег в рублях
-    $ Grade = 0 #Успеваемость в процентах 50 = 100%  0 = 50% -50 = 0% при -10 и ниже блок выборов
-    $ GradeMod = 1 #Множитель успеваемости. Единождый бонус
-    $ Reputation = 0 #Репутация
-    $ KabakReputation = 0 #Репутация с максом
-    $ KrisReputation = 0 #Репутация с кристиной
+        voice "Пхех, наверное легче будет рассказать вам, как я учился, но с одной помаркой вы изучите весь сегодняшний материал сами, раз уж целую пару займем."
 
-    $ timer_onoff = False
+        All "ХОРОШО"
+        All "КОНЕЧНО"
+        All "УРА"
 
-    label Day0:
+        voice "Ну слушайте с самого начала......."
+
+    label day0:
         label WAKE_UP_SAMURAI:
 
             scene blackscreen
 
             voice "Давайте знакомиться. Я ваш путеводитель по мыслям этого...."
 
-            voice "Абалдуя....."
+            voice "Обалдуя....."
 
             voice "Да, так подойдёт. Это наш Олежа, и он почти проспал свой первый день в институте"
 
@@ -203,11 +186,11 @@ label start:
             scene ggroom
             with Fade(0.5,0.5,1)
   
-    label Day1:
+    label day1:
 
         $ModeusHelp = 0
 
-        scene Day1
+        scene day1
         with Fade(1,1,2)
 
         pause(2)
@@ -324,11 +307,11 @@ label start:
 
             voice "Наш безымянный впал в ступор. Не будем ему мешать пусть отдохнёт, ведь завтра надинаеться учёба"
 
-    label Day2:
+    label day2:
 
         $Ending = 0
 
-        scene Day2
+        scene day2
         with Fade(1,1,2)
 
         pause(2)
@@ -482,9 +465,9 @@ label start:
             with Fade(0.5,0.5,1)
             pause(2)
 
-    label Day3:
+    label day3:
         
-        scene Day3
+        scene day3
         with Fade(1,1,2)
 
         pause(2)
@@ -574,7 +557,7 @@ label start:
             gg "Фух, вроде бы прокатило. Все-таки придется учить историю, если захочу хорошую оценку"
 
 
-        label ProgaDay3:
+        label Progaday3:
             
             scene prodaudit
             with Fade(0.5,0.5,1)
@@ -662,7 +645,7 @@ label start:
 
                 scene blackscreen
                 with Fade(0.5,0.5,1)
-                jump Day4
+                jump day4
                    
 
 

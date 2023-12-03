@@ -1,7 +1,5 @@
-
-label Day4:
-        
-        scene Day4
+label day4:     
+        scene day4
         with Fade(1,1,2)
 
         pause(2)
@@ -9,7 +7,6 @@ label Day4:
         label Studing1:
             
             voice "Давайте опустим всё лишнее по типу того, как наш герой снова проснулся у себя"
-
             scene progaudit
             with Fade(0.5,0.5,1)
 
@@ -30,6 +27,7 @@ label Day4:
                     jump GoToHome
 
         label SvoiaIgra:
+            
 
             $ timer_onoff = True
 
@@ -166,7 +164,7 @@ label Day4:
                     leader "Текущий счёт команд: Прилагательные [Team2Points], Стрелки [Team1Points], Бикини Боттом [Team3Points], [PlayerteamName] [OurTeamPoints]"
 
                     $ Turn = 1
-                    
+
                     jump Round2
 
                 if R1Cat1Quest1Status == False and R1Cat1Quest2Status == False and R1Cat1Quest3Status == False and R1Cat1Quest4Status == False and R1Cat1Quest5Status == False:

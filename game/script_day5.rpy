@@ -23,13 +23,25 @@ label day5:
 
         if chanse == 6:
                 
+<<<<<<< Updated upstream
             call down
+=======
+            call down from _call_down
+>>>>>>> Stashed changes
         else:
             jump godpnigstyle
 
     label down:
 
+<<<<<<< Updated upstream
         "Егор, сюда надо написать момент с подскальзывание на 'говне'"
+=======
+        "Вы подскальзываете на льду"
+
+        gg "АЙЙЙЙЙЙ, блин, это было больно"
+
+        "Вы встали отряхнулись, и побежали дальше на мероприятие"
+>>>>>>> Stashed changes
 
     label godpnigstyle:
 
@@ -38,7 +50,11 @@ label day5:
 
         $ timez = 80
         $ time_range = 80
+<<<<<<< Updated upstream
         $ marker = 'pussyboi'
+=======
+        $ marker = 'sissy'
+>>>>>>> Stashed changes
 
         scene phone51
         with Fade(0.3,0.3,0.6)
@@ -64,18 +80,31 @@ label day5:
 
         boss "Я че-то не понял, ты че, тупой?"
 
+<<<<<<< Updated upstream
         noname "Так, все, ты за**л, телефон отдавай!"
+=======
+        noname "Так, все, ты взбесил, телефон отдавай!"
+>>>>>>> Stashed changes
 
         voice "И тут я понял, что нарвался на местных гопников"
 
         menu:
             gg "* Что же делать? *"
+<<<<<<< Updated upstream
             "съебаться":
                 jump run
             "быть пуськой":
                 jump pussyboi
             "перец в лицо":
                 jump illfuckyou
+=======
+            "уйти":
+                jump run
+            "быть неженкой":
+                jump sissy
+            "перец в лицо":
+                jump rejection
+>>>>>>> Stashed changes
 
         label run:
 
@@ -85,7 +114,11 @@ label day5:
             with Fade(0.2,0.2,0.4)
 
 
+<<<<<<< Updated upstream
             noname "Эээ, куда?! А ну стой, с**а!"
+=======
+            noname "Эээ, куда?! А ну стой!"
+>>>>>>> Stashed changes
 
             voice "Нужно было ходить на физ-ру, чтобы быстрее бегать в такие критические моменты."
 
@@ -114,8 +147,12 @@ label day5:
             jump day6
             
 
+<<<<<<< Updated upstream
 
         label pussydoi:
+=======
+        label sissy:
+>>>>>>> Stashed changes
 
             gg "Да, конечно, берите, только не трогайте!"
 
@@ -150,7 +187,11 @@ label day5:
 
             jump day6
 
+<<<<<<< Updated upstream
         label illfuckyou:
+=======
+        label rejection:
+>>>>>>> Stashed changes
 
             gg "Что? На каком это основании?"
 

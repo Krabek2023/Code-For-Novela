@@ -25,7 +25,11 @@ label day4:
             "Идём":
                 jump SvoiaIgra
             "Да ну его. Пойду в доту":
+<<<<<<< Updated upstream
                 jump GoToHome
+=======
+                jump day5
+>>>>>>> Stashed changes
 
         label SvoiaIgra:
             
@@ -190,7 +194,11 @@ label day4:
 
                 if Turn == 1:
                     menu:
+<<<<<<< Updated upstream
                         "Георафия" if R1Cat1Status == True:
+=======
+                        "География" if R1Cat1Status == True:
+>>>>>>> Stashed changes
                             jump Round1Cat1
                         "История" if R1Cat2Status == True:
                             jump Round1Cat2
@@ -265,7 +273,11 @@ label day4:
                         $ marker = 'R1Cat1Quest5'
 
                     if Turn == 1: 
+<<<<<<< Updated upstream
                         gg "Георафия"
+=======
+                        gg "География"
+>>>>>>> Stashed changes
                         menu: 
                             "100" if R1Cat1Quest1Status == True:
                                 jump R1Cat1Quest1
@@ -283,7 +295,11 @@ label day4:
                                 jump R1Cat1Quest5
 
                     elif Turn == 2 : 
+<<<<<<< Updated upstream
                         team1 "Георафия"
+=======
+                        team1 "География"
+>>>>>>> Stashed changes
                         $Team1Qestion = renpy.random.randint(1,5)
                         if R1Cat1Quest1Status==1 and Team1Qestion == 1:
                             team1 "Вопрос за 100"
@@ -335,7 +351,11 @@ label day4:
                             jump Round1Cat1 
 
                     elif Turn == 4: 
+<<<<<<< Updated upstream
                         team3 "Гегорафия"
+=======
+                        team3 "География"
+>>>>>>> Stashed changes
                         $Team1Qestion = renpy.random.randint(1,5)
                         if R1Cat1Quest1Status==1 and Team1Qestion == 1:
                             team3 "Вопрос за 100"
@@ -4163,7 +4183,11 @@ label day4:
                                 jump Round2 
 
                         elif Turn == 3 : 
+<<<<<<< Updated upstream
                             $Team2Answer = renpy.random.randint(1,6)
+=======
+                            $Team2Answer = renpy.random.randint(1,4)
+>>>>>>> Stashed changes
                             if Team2Answer == 1:
                                 "Французкий"
                                 "верно"
@@ -4201,7 +4225,11 @@ label day4:
                                 jump Round2 
 
                         elif Turn == 4 : 
+<<<<<<< Updated upstream
                             $Team3Answer = renpy.random.randint(1,6)
+=======
+                            $Team3Answer = renpy.random.randint(1,4)
+>>>>>>> Stashed changes
                             if Team3Answer == 1:
                                 "Французкий"
                                 "верно"
@@ -4324,7 +4352,11 @@ label day4:
                                 jump Round2
 
                         elif Turn == 3 : 
+<<<<<<< Updated upstream
                             $Team2Answer = renpy.random.randint(1,6)
+=======
+                            $Team2Answer = renpy.random.randint(1,4)
+>>>>>>> Stashed changes
                             if Team2Answer == 1:
                                 "Арабский"
                                 "верно"
@@ -4362,7 +4394,11 @@ label day4:
                                 jump Round2
 
                         elif Turn == 4 : 
+<<<<<<< Updated upstream
                             $Team3Answer = renpy.random.randint(1,6)
+=======
+                            $Team3Answer = renpy.random.randint(1,4)
+>>>>>>> Stashed changes
                             if Team3Answer == 1:
                                 "Арабский"
                                 "верно"
@@ -4485,7 +4521,11 @@ label day4:
                                 jump Round2
 
                         elif Turn == 3 : 
+<<<<<<< Updated upstream
                             $Team2Answer = renpy.random.randint(1,6)
+=======
+                            $Team2Answer = renpy.random.randint(1,4)
+>>>>>>> Stashed changes
                             if Team2Answer == 1:
                                 "PHP"
                                 "верно"
@@ -4523,7 +4563,11 @@ label day4:
                                 jump Round2
 
                         elif Turn == 4 : 
+<<<<<<< Updated upstream
                             $Team3Answer = renpy.random.randint(1,6)
+=======
+                            $Team3Answer = renpy.random.randint(1,4)
+>>>>>>> Stashed changes
                             if Team3Answer == 1:
                                 "PHP"
                                 "верно"
@@ -4646,7 +4690,11 @@ label day4:
                                 jump Round2
 
                         elif Turn == 3 : 
+<<<<<<< Updated upstream
                             $Team2Answer = renpy.random.randint(1,6)
+=======
+                            $Team2Answer = renpy.random.randint(1,4)
+>>>>>>> Stashed changes
                             if Team2Answer == 1:
                                 "Эсперанто"
                                 "верно"
@@ -4684,7 +4732,11 @@ label day4:
                                 jump Round2
 
                         elif Turn == 4 : 
+<<<<<<< Updated upstream
                             $Team3Answer = renpy.random.randint(1,6)
+=======
+                            $Team3Answer = renpy.random.randint(1,4)
+>>>>>>> Stashed changes
                             if Team3Answer == 1:
                                 "Эсперанто"
                                 "верно"
@@ -4807,7 +4859,11 @@ label day4:
                                 jump Round2
 
                         elif Turn == 3 : 
+<<<<<<< Updated upstream
                             $Team2Answer = renpy.random.randint(1,6)
+=======
+                            $Team2Answer = renpy.random.randint(1,4)
+>>>>>>> Stashed changes
                             if Team2Answer == 1:
                                 "1"
                                 "верно"
@@ -4845,7 +4901,11 @@ label day4:
                                 jump Round2
 
                         elif Turn == 4 : 
+<<<<<<< Updated upstream
                             $Team3Answer = renpy.random.randint(1,6)
+=======
+                            $Team3Answer = renpy.random.randint(1,4)
+>>>>>>> Stashed changes
                             if Team3Answer == 1:
                                 "1"
                                 "верно"

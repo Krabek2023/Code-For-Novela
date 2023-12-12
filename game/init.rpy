@@ -8,6 +8,8 @@ init:
     $ KabakReputation = 0 #Репутация с максом
     $ KrisReputation = 0 #Репутация с кристиной
 
+    $ clubstatus = False
+
     $ timer_onoff = False
 
     define gg = Character('Олежа', color="#b7d436")
